@@ -2,10 +2,11 @@ const rp = require("request-promise");
 const _ = require("lodash");
 const eaPlayers = require("../players.json").Players;
 const playersById = _.keyBy(eaPlayers, "id");
+const removeDiacritics = require('diacritics').remove;
 
 const playersByLastName = eaPlayers.reduce((obj,p) => {
 	if (p.l) {
-		let lastName = p.l.toLowerCase();
+		let lastName = removeDiacritics(p.l.toLowerCase());
 		if ( !obj[lastName] ) {
 			obj[lastName] = [];
 		}
@@ -16,7 +17,7 @@ const playersByLastName = eaPlayers.reduce((obj,p) => {
 
 const playersByNickName = eaPlayers.reduce((obj,p) => {
 	if (p.c) {
-		let nickName = p.c.toLowerCase();
+		let nickName = removeDiacritics(p.c.toLowerCase());
 		if ( !obj[nickName] ) {
 			obj[nickName] = [];
 		}
@@ -27,7 +28,7 @@ const playersByNickName = eaPlayers.reduce((obj,p) => {
 
 const playersByFirstName = eaPlayers.reduce((obj,p) => {
 	if (p.f) {
-		let firstName = p.f.toLowerCase();
+		let firstName = removeDiacritics(p.f.toLowerCase());
 		if ( !obj[firstName] ) {
 			obj[firstName] = [];
 		}
@@ -42,7 +43,7 @@ function lookupPlayerById(id) {
 }
 
 function lookupPlayersByName(name) {
-	let n = name.toLowerCase();
+	let n = removeDiacritics(name.toLowerCase());
 	let lastNameMatches = playersByLastName[n];
 	let nickNameMatches = playersByNickName[n];
 	let firstNameMatches = playersByFirstName[n];

@@ -14,12 +14,39 @@ const playersByLastName = eaPlayers.reduce((obj,p) => {
 	return obj;
 },{});
 
+const playersByNickName = eaPlayers.reduce((obj,p) => {
+	if (p.c) {
+		let nickName = p.c.toLowerCase();
+		if ( !obj[nickName] ) {
+			obj[nickName] = [];
+		}
+		obj[nickName].push(p);
+	}
+	return obj;
+},{});
+
+const playersByFirstName = eaPlayers.reduce((obj,p) => {
+	if (p.f) {
+		let firstName = p.f.toLowerCase();
+		if ( !obj[firstName] ) {
+			obj[firstName] = [];
+		}
+		obj[firstName].push(p);
+	}
+	return obj;
+},{});
+
+
 function lookupPlayerById(id) {
 	return playersById[id];
 }
 
 function lookupPlayersByName(name) {
-	return playersByLastName[name.toLowerCase()];
+	let n = name.toLowerCase();
+	let lastNameMatches = playersByLastName[n];
+	let nickNameMatches = playersByNickName[n];
+	let firstNameMatches = playersByFirstName[n];
+	return _.compact(_.concat(playersByLastName[n], playersByNickName[n], playersByFirstName[n]));
 }
 
 function formatPrettyName(player) {

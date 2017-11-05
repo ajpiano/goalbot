@@ -118,6 +118,17 @@ module.exports = {
 
 		if (players) {
 			getFutbinPrices(players).then((futbinPrices) => {
+				let keys = _.keys(futbinPrices);
+
+				if (keys.length >= 5) {
+					msg.channel.send(`${keys} matching results. Displaying the first 4 only:`);
+					let truncatedPrices = {};
+					_.forEach(keys.slice(0,4), (k) => {
+						truncatedPrices[k] = futbinPrices[k];
+					});
+					futbinPrices = truncatedPrices;
+				}
+
 				_.forEach(futbinPrices,(playerPrices,id) => {
 					let prettyName = formatPrettyName(lookupPlayerById(id)); 
 					let embed = formatFutbinPrices(playerPrices.prices);

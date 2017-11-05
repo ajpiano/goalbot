@@ -116,12 +116,12 @@ module.exports = {
 		name = id;
 		players = lookupPlayersByName(name);
 
-		if (players) {
+		if (players.length) {
 			getFutbinPrices(players).then((futbinPrices) => {
 				let keys = _.keys(futbinPrices);
 
 				if (keys.length >= 5) {
-					msg.channel.send(`${keys} matching results. Displaying the first 4 only:`);
+					msg.channel.send(`${keys.length} matching results. Displaying the first 4 only:`);
 					let truncatedPrices = {};
 					_.forEach(keys.slice(0,4), (k) => {
 						truncatedPrices[k] = futbinPrices[k];
@@ -135,6 +135,8 @@ module.exports = {
 					msg.channel.send(prettyName, {embed});
 				});
 			})
+		} else if (!players.length) {
+			msg.channel.send(`Sorry, no players matching the name "${name}"`);
 		} else {
 			msg.channel.send(`Sorry, not sure what that means just yet, ${msg.author}`);
 		}

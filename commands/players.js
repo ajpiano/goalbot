@@ -1,14 +1,15 @@
 const rp = require("request-promise");
 const _ = require("lodash");
-const players = require("../players.json").Players;
-const playersById = _.keyBy(players, "id");
+const eaPlayers = require("../players.json").Players;
+const playersById = _.keyBy(eaPlayers, "id");
 
-const playersByLastName = players.reduce((obj,p) => {
+const playersByLastName = eaPlayers.reduce((obj,p) => {
 	if (p.l) {
-		if ( !obj[p.l] ) {
-			obj[p.l] = [];
+		let lastName = p.l.toLowerCase();
+		if ( !obj[lastName] ) {
+			obj[lastName] = [];
 		}
-		obj[p.l].push(p);
+		obj[lastName].push(p);
 	}
 	return obj;
 },{});
@@ -17,14 +18,25 @@ function lookupPlayerById(id) {
 	return playersById[id];
 }
 
+function lookupPlayersByName(name) {
+	return playersByLastName[name.toLowerCase()];
+}
+
 function formatPrettyName(player) {
 	return `${player.f} ${player.l} ${player.c ? '(' + player.c + ')' : '' }`;
 }
 
 function getFutbinPrices(players) {
-	let ids = players.length ? _.pluck(players,"id").join(",") : players.id;
+	let ids = players.length ? _.map(players,"id").join(",") : players.id;
 	return rp("https://www.futbin.com/18/playerPrices?player=&all_versions=" + ids).then(function(resp) {
-		return JSON.parse(resp);
+		let playerPrices = JSON.parse(resp);
+		playerPrices = _.reduce(playerPrices,(obj, p, id) => {
+			if (id > 0) {
+				obj[id] = p;
+			}
+			return obj;
+		},{});
+		return playerPrices;
 	});
 }
 
@@ -55,23 +67,35 @@ module.exports = {
 	main: function(bot, msg) {
 		let commands = msg.content.trim().split(" ");
 		let [id] = commands;
-		let player;
+		let name, player;
 
+		// First try an ID lookup
 		if (_.isFinite(+id)) {
 			player = lookupPlayerById(+id);
-		}
 
-		if (player) {
-			let prettyName = formatPrettyName(player);
-			let initialResponse = msg.channel.send(prettyName);
-			getFutbinPrices(player).then((futbinPrices) => {
-				let prices = futbinPrices[player.id].prices;
-				let embed = formatFutbinPrices(prices);
-				initialResponse.then((newMsg) => { 
-					newMsg.edit(prettyName, {embed});
+			if (player) {
+				let prettyName = formatPrettyName(player);
+				let initialResponse = msg.channel.send(prettyName);
+				return getFutbinPrices(player).then((futbinPrices) => {
+					let prices = futbinPrices[player.id].prices;
+					let embed = formatFutbinPrices(prices);
+					initialResponse.then((newMsg) => { 
+						newMsg.edit(prettyName, {embed});
+					});
 				});
-			});
+			}
+		} 
+		name = id;
+		players = lookupPlayersByName(name);
 
+		if (players) {
+			getFutbinPrices(players).then((futbinPrices) => {
+				_.forEach(futbinPrices,(playerPrices,id) => {
+					let prettyName = formatPrettyName(lookupPlayerById(id)); 
+					let embed = formatFutbinPrices(playerPrices.prices);
+					msg.channel.send(prettyName, {embed});
+				});
+			})
 		} else {
 			msg.channel.send(`Sorry, not sure what that means just yet, ${msg.author}`);
 		}

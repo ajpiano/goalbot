@@ -1,5 +1,5 @@
 {
 	"OWNERID": "Your Discord ID (Numeric - get by right clicking your User in Discord)",
 	"PREFIX": "!",
-	"TOKEN": ""
+	"TOKEN": "Your Discord Bot Token"
 }

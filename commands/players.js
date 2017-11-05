@@ -38,6 +38,15 @@ const playersByFirstName = eaPlayers.reduce((obj,p) => {
 	return obj;
 },{});
 
+const playersByPrettyName = eaPlayers.reduce((obj,p) => {
+	let prettyName = removeDiacritics(formatPrettyName(p).toLowerCase());
+	if ( !obj[prettyName] ) {
+		obj[prettyName] = [];
+	}
+	obj[prettyName].push(p);
+	return obj;
+},{});
+
 
 function lookupPlayerById(id) {
 	return playersById[id];
@@ -49,6 +58,17 @@ function lookupPlayersByName(name) {
 	let nickNameMatches = playersByNickName[n];
 	let firstNameMatches = playersByFirstName[n];
 	return _.compact(_.concat(playersByLastName[n], playersByNickName[n], playersByFirstName[n]));
+}
+
+function lookupPlayersByFuzzyName(name) {
+	let fuzzyRegexp = new RegExp(removeDiacritics(name.toLowerCase()));
+	let fuzzyMatches = _.pickBy(playersByPrettyName, (player,prettyName) => {
+		return fuzzyRegexp.test(prettyName);
+	});
+	let fuzzyPlayers = _.flatten(_.map(fuzzyMatches, (playerSet,prettyName) => {
+		return playerSet;
+	}));
+	return fuzzyPlayers;
 }
 
 function formatPrettyName(player) {
@@ -92,6 +112,28 @@ function formatFutbinPrices(prices) {
 	return embed;
 }
 
+function outputMultiplePlayers(msg, players) {
+	getFutbinPrices(players).then((futbinPrices) => {
+		let keys = _.keys(futbinPrices);
+
+		if (keys.length >= 5) {
+			msg.channel.send(`${keys.length} matching results. Displaying the first 4 only:`);
+			let truncatedPrices = {};
+			_.forEach(keys.slice(0,4), (k) => {
+				truncatedPrices[k] = futbinPrices[k];
+			});
+			futbinPrices = truncatedPrices;
+		}
+
+		_.forEach(futbinPrices,(playerPrices,id) => {
+			let prettyName = formatPrettyName(lookupPlayerById(id)); 
+			let embed = formatFutbinPrices(playerPrices.prices);
+			msg.channel.send(prettyName, {embed});
+		});
+	});
+
+}
+
 module.exports = {
 	main: function(bot, msg) {
 		let id = msg.content.trim(); 
@@ -104,7 +146,7 @@ module.exports = {
 			if (player) {
 				let prettyName = formatPrettyName(player);
 				let initialResponse = msg.channel.send(prettyName);
-				return getFutbinPrices(player).then((futbinPrices) => {
+				getFutbinPrices(player).then((futbinPrices) => {
 					let prices = futbinPrices[player.id].prices;
 					let embed = formatFutbinPrices(prices);
 					initialResponse.then((newMsg) => { 
@@ -112,34 +154,24 @@ module.exports = {
 					});
 				});
 			}
+			return;
 		} 
+
+		// Next, try looking up on exact name match for First Name, Last Name, or NickName
 		name = id;
 		players = lookupPlayersByName(name);
-
 		if (players.length) {
-			getFutbinPrices(players).then((futbinPrices) => {
-				let keys = _.keys(futbinPrices);
-
-				if (keys.length >= 5) {
-					msg.channel.send(`${keys.length} matching results. Displaying the first 4 only:`);
-					let truncatedPrices = {};
-					_.forEach(keys.slice(0,4), (k) => {
-						truncatedPrices[k] = futbinPrices[k];
-					});
-					futbinPrices = truncatedPrices;
-				}
-
-				_.forEach(futbinPrices,(playerPrices,id) => {
-					let prettyName = formatPrettyName(lookupPlayerById(id)); 
-					let embed = formatFutbinPrices(playerPrices.prices);
-					msg.channel.send(prettyName, {embed});
-				});
-			})
-		} else if (!players.length) {
-			msg.channel.send(`Sorry, no players matching the name "${name}"`);
-		} else {
-			msg.channel.send(`Sorry, not sure what that means just yet, ${msg.author}`);
+			return outputMultiplePlayers(msg, players);
 		}
+
+		// Next, try a fuzzy search on the entire prettyprinted name
+		players = lookupPlayersByFuzzyName(name);
+		if (players.length) {
+			return outputMultiplePlayers(msg, players);
+		}
+
+		// Otherwise, give up
+		msg.channel.send(`Sorry, not sure what that means just yet, ${msg.author}`);
 	},
 	help: 'Lookup player info'
 };

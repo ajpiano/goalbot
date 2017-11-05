@@ -1,6 +1,7 @@
 const rp = require("request-promise");
 const _ = require("lodash");
-const eaPlayers = require("../players.json").Players;
+const playersJson = require("../players.json")
+const eaPlayers = _.concat(playersJson.Players, playersJson.LegendsPlayers);
 const playersById = _.keyBy(eaPlayers, "id");
 const removeDiacritics = require('diacritics').remove;
 
@@ -93,8 +94,7 @@ function formatFutbinPrices(prices) {
 
 module.exports = {
 	main: function(bot, msg) {
-		let commands = msg.content.trim().split(" ");
-		let [id] = commands;
+		let id = msg.content.trim(); 
 		let name, player;
 
 		// First try an ID lookup

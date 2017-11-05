@@ -112,12 +112,12 @@ function formatFutbinPrices(prices) {
 	return embed;
 }
 
-function outputMultiplePlayers(msg, players) {
+function outputMultiplePlayers(msg, name, players) {
 	getFutbinPrices(players).then((futbinPrices) => {
 		let keys = _.keys(futbinPrices);
 
 		if (keys.length >= 5) {
-			msg.channel.send(`${keys.length} matching results. Displaying the first 4 only:`);
+			msg.channel.send(`"${name}" matched ${keys.length} players. Displaying the first 4 only:`);
 			let truncatedPrices = {};
 			_.forEach(keys.slice(0,4), (k) => {
 				truncatedPrices[k] = futbinPrices[k];
@@ -161,17 +161,17 @@ module.exports = {
 		name = id;
 		players = lookupPlayersByName(name);
 		if (players.length) {
-			return outputMultiplePlayers(msg, players);
+			return outputMultiplePlayers(msg, name, players);
 		}
 
 		// Next, try a fuzzy search on the entire prettyprinted name
 		players = lookupPlayersByFuzzyName(name);
 		if (players.length) {
-			return outputMultiplePlayers(msg, players);
+			return outputMultiplePlayers(msg, name, players);
 		}
 
 		// Otherwise, give up
-		msg.channel.send(`Sorry, not sure what that means just yet, ${msg.author}`);
+		msg.channel.send(`Sorry ${msg.author}, I couldn't find any FUT players that match "${name}"`);
 	},
 	help: 'Lookup player info'
 };

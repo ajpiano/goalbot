@@ -1,0 +1,31 @@
+{
+  "name": "goalbot",
+  "version": "0.0.1",
+  "description": "A Discord Chatbot for FUT/Football Events Edit",
+  "main": "bot.js",
+  "dependencies": {
+    "discord.js": "^11.2.1",
+    "node-opus": "^0.2.7",
+    "request": "^2.83.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ajpiano/goalbot.git"
+  },
+  "keywords": [
+    "discord",
+    "fifa",
+    "fut",
+    "chatbot"
+  ],
+  "author": "adam j. sontag",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ajpiano/goalbot/issues"
+  },
+  "homepage": "https://github.com/ajpiano/goalbot#readme"
+}

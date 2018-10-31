@@ -1,6 +1,7 @@
+const { Command } = require('discord.js-commando');
 const rp = require("request-promise");
 const _ = require("lodash");
-const playersJson = require("../players.json")
+const playersJson = require("../../players.json")
 const eaPlayers = _.concat(playersJson.Players, playersJson.LegendsPlayers);
 const playersById = _.keyBy(eaPlayers, "id");
 const removeDiacritics = require('diacritics').remove;
@@ -56,8 +57,8 @@ function lookupPlayersByName(name) {
 	let n = removeDiacritics(name.toLowerCase());
 	let lastNameMatches = playersByLastName[n];
 	let nickNameMatches = playersByNickName[n];
-	let firstNameMatches = playersByFirstName[n];
-	return _.compact(_.concat(playersByLastName[n], playersByNickName[n], playersByFirstName[n]));
+  let firstNameMatches = playersByFirstName[n];
+	return _.compact(_.concat(lastNameMatches, nickNameMatches, firstNameMatches));
 }
 
 function lookupPlayersByFuzzyName(name) {
@@ -77,7 +78,9 @@ function formatPrettyName(player) {
 
 function getFutbinPrices(players) {
 	let ids = players.length ? _.map(players,"id").join(",") : players.id;
-	return rp("https://www.futbin.com/18/playerPrices?player=&all_versions=" + ids).then(function(resp) {
+        let reqUrl = `https://www.futbin.com/19/playerPrices?player=&all_versions=${ids}`;
+        console.log(reqUrl);
+	return rp(reqUrl).then(function(resp) {
 		let playerPrices = JSON.parse(resp);
 		playerPrices = _.reduce(playerPrices,(obj, p, id) => {
 			if (id > 0) {
@@ -117,7 +120,7 @@ function outputMultiplePlayers(msg, name, players) {
 		let keys = _.keys(futbinPrices);
 
 		if (keys.length >= 5) {
-			msg.channel.send(`"${name}" matched ${keys.length} players. Displaying the first 4 only:`);
+			msg.say(`"${name}" matched ${keys.length} players. Displaying the first 4 only:`);
 			let truncatedPrices = {};
 			_.forEach(keys.slice(0,4), (k) => {
 				truncatedPrices[k] = futbinPrices[k];
@@ -128,50 +131,66 @@ function outputMultiplePlayers(msg, name, players) {
 		_.forEach(futbinPrices,(playerPrices,id) => {
 			let prettyName = formatPrettyName(lookupPlayerById(id)); 
 			let embed = formatFutbinPrices(playerPrices.prices);
-			msg.channel.send(prettyName, {embed});
+			msg.say(prettyName, {embed});
 		});
 	});
 
 }
 
-module.exports = {
-	main: function(bot, msg) {
-		let id = msg.content.trim(); 
-		let name, player;
+module.exports = class ReplyCommand extends Command {
+  constructor(client) {
+    super(client, {
+      name: 'players',
+      group: 'fut',
+      memberName: 'players',
+      description: 'Looks up player info + price from FUTBIN',
+      examples: ['players mertens'],
+      args: [
+        {
+          key: 'term',
+          prompt: 'Which player(s) do you want to search for?',
+          type: 'string'
+        }
+      ]
+    });
+  }
 
-		// First try an ID lookup
-		if (_.isFinite(+id)) {
-			player = lookupPlayerById(+id);
+  run(msg, { term }) {
+    let id = term; 
+    let name, player, players;
 
-			if (player) {
-				let prettyName = formatPrettyName(player);
-				let initialResponse = msg.channel.send(prettyName);
-				getFutbinPrices(player).then((futbinPrices) => {
-					let prices = futbinPrices[player.id].prices;
-					let embed = formatFutbinPrices(prices);
-					initialResponse.then((newMsg) => { 
-						newMsg.edit(prettyName, {embed});
-					});
-				});
-			}
-			return;
-		} 
+    // First try an ID lookup
+    if (_.isFinite(+id)) {
+      player = lookupPlayerById(+id);
 
-		// Next, try looking up on exact name match for First Name, Last Name, or NickName
-		name = id;
-		players = lookupPlayersByName(name);
-		if (players.length) {
-			return outputMultiplePlayers(msg, name, players);
-		}
+      if (player) {
+        let prettyName = formatPrettyName(player);
+        let initialResponse = msg.say(prettyName);
+        getFutbinPrices(player).then((futbinPrices) => {
+          let prices = futbinPrices[player.id].prices;
+          let embed = formatFutbinPrices(prices);
+          initialResponse.then((newMsg) => { 
+            newMsg.edit(prettyName, {embed});
+          });
+        });
+      }
+      return;
+    } 
 
-		// Next, try a fuzzy search on the entire prettyprinted name
-		players = lookupPlayersByFuzzyName(name);
-		if (players.length) {
-			return outputMultiplePlayers(msg, name, players);
-		}
+    // Next, try looking up on exact name match for First Name, Last Name, or NickName
+    name = id;
+    players = lookupPlayersByName(name);
+    if (players.length) {
+      return outputMultiplePlayers(msg, name, players);
+    }
 
-		// Otherwise, give up
-		msg.channel.send(`Sorry ${msg.author}, I couldn't find any FUT players that match "${name}"`);
-	},
-	help: 'Lookup player info'
+    // Next, try a fuzzy search on the entire prettyprinted name
+    players = lookupPlayersByFuzzyName(name);
+    if (players.length) {
+      return outputMultiplePlayers(msg, name, players);
+    }
+
+    // Otherwise, give up
+    return msg.say(`Sorry ${msg.author}, I couldn't find any FUT players that match "${name}"`);
+  }
 };

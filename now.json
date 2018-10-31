@@ -1,0 +1,6 @@
+{
+  "env": {
+    "DISCORD_TOKEN": "@goalbot-discord-token",
+    "DISCORD_OWNERID": "@goalbot-discord-ownerid"
+  }
+}

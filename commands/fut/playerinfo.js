@@ -4,6 +4,7 @@ const rp = require("request-promise");
 const _ = require("lodash");
 const flag = require('emoji-flag');
 const countries = require('country-list/data');
+const exclamations = require('exclamation');
 const rarities = require('../../lib/futitemraritytunables').rarities;
 
 countries.push({code: 'NL', name: 'Holland'});
@@ -70,38 +71,53 @@ module.exports = class ReplyCommand extends Command {
   constructor(client) {
     super(client, {
       name: 'players',
+      aliases: ['player', 'p'],
       group: 'fut',
       memberName: 'players',
       description: 'Looks up player info from EA FUT DB + price from FUTBIN',
-      examples: ['players mertens'],
+      examples: ['players mertens', 'players mertens 87', 'players "dries mertens"', 'players "dries mertens" 87'],
       args: [
         {
-          key: 'term',
-          prompt: 'Which player(s) do you want to search for?',
+          key: 'name',
+          prompt: 'Which player(s) do you want to search for? Use quotes if searching with spaces',
           type: 'string'
+        }, {
+          key: 'rating',
+          prompt: 'Which rating should we match on?',
+          type: 'integer',
+          default: ''
         }
       ]
     });
   }
 
-  async run(msg, { term }) {
-    let id = term; 
-    let name, player, players;
+  async run(msg, { name, rating }) {
 
-    if (_.isFinite(+id)) {
-      throw new FriendlyError(`Sorry ${msg.author}, you can't search by numeric ID right now`);
-    } 
-
-    name = id;
     let dbResults = await searchFutDB(name);
 
     if (!dbResults.totalResults) {
       return msg.say(`Sorry ${msg.author}, no players found matched '${name}'`);
     } else {
-      let futbinPrices = await getFutbinPrices(dbResults.items);
 
-      let truncatedResults = dbResults.items.slice(0,4);
-      msg.say(`Hooray ${msg.author}, ${dbResults.totalResults} players matched '${name}', here are the first ${truncatedResults.length}:`);
+      let lookupPlayers = dbResults.items;
+      if (rating) {
+        lookupPlayers = _.filter(lookupPlayers, {rating: rating})
+      }
+      let searchName = name + (rating ? ` ${rating}`: '');
+      if (!lookupPlayers.length) {
+        return msg.say(`Sorry ${msg.author}, ${dbResults.items.length} players matched '${name}', but none are rated ${rating}`);
+      }
+
+      let truncatedResults = lookupPlayers.slice(0,4);
+      let futbinPrices = await getFutbinPrices(truncatedResults);
+
+      let preamble = `${exclamations.random()}, ${msg.author}! `;
+      if (lookupPlayers.length === 1) {
+        preamble += `I found a match for '${searchName}', here it is:`;
+      } else {
+        preamble += `${lookupPlayers.length} players matched '${searchName}', here are the first ${truncatedResults.length}:`;
+      }
+      msg.say(preamble);
       truncatedResults.forEach((player) => {
         let prices = futbinPrices[player.id].prices;
         let embed = formatPlayerEmbed(player, prices);

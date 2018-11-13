@@ -10,6 +10,7 @@
     "discord.js": "^11.4.2",
     "discord.js-commando": "^0.10.0",
     "emoji-flag": "^1.1.0",
+    "exclamation": "^0.1.0",
     "lodash": "^4.17.11",
     "node-opus": "^0.2.7",
     "now-env": "^3.1.0",

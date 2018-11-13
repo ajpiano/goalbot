@@ -41,7 +41,7 @@ function formatPlayerEmbed(player, prices) {
 	let nationInfo = _.find(countries, {name: player.nation.name});
 	let flagEmoji = "";
 	if (nationInfo) {
-		flagEmoji = flag(nationInfo.code);
+		flagEmoji = flag(nationInfo.code) + " ";
 	}
 	let cardTypeInfo = _.find(rarities, {id: player.rarityId});
 	let cardTypeName = "";

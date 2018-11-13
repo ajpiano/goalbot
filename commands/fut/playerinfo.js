@@ -6,6 +6,7 @@ const flag = require('emoji-flag');
 const countries = require('country-list/data');
 const exclamations = require('exclamation');
 const rarities = require('../../lib/futitemraritytunables').rarities;
+const version = require('../../package').version;
 
 countries.push({code: 'NL', name: 'Holland'});
 
@@ -64,6 +65,7 @@ function formatPlayerEmbed(player, prices) {
 	embed.addField("XBOX", `BIN: ${xboxPrice}\nRange: ${xboxMin} -> ${xboxMax}`, true);
 	embed.addField("PS", `BIN: ${psPrice}\nRange: ${psMin} -> ${psMax}`, true);
 	embed.addField("PC", `BIN: ${pcPrice}\nRange: ${pcMin} -> ${pcMax}`, true);
+        embed.setFooter(`goalbot v${version}, made with ❤️💡💪 by ajpiano`, "https://static-cdn.jtvnw.net/badges/v1/cce0dfdc-5160-4c9c-9c4b-b02dc4a684b2/1");
 	return embed;
 }
 

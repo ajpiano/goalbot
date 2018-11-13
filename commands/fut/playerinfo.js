@@ -9,7 +9,7 @@ const rarities = require('../../lib/futitemraritytunables').rarities;
 countries.push({code: 'NL', name: 'Holland'});
 
 async function searchFutDB(term) {
-  return rp(`https://www.easports.com/fifa/ultimate-team/api/fut/item?jsonParamObject=%7B%22name%22:%22${term}%22%7D`).then((resp) => {
+  return rp(`https://www.easports.com/fifa/ultimate-team/api/fut/item?jsonParamObject=%7B%22name%22:%22${encodeURIComponent(term)}%22%7D`).then((resp) => {
     let apiResp = JSON.parse(resp)
     return apiResp;
   });

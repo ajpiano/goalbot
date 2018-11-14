@@ -104,30 +104,37 @@ module.exports = class ReplyCommand extends Command {
     } else {
 
       let lookupPlayers = dbResults.items;
+
+      // Suppresses FUT Champs Reward players
+      lookupPlayers = _.reject(lookupPlayers, {rarityId: 18});
+
       if (rating) {
         lookupPlayers = _.filter(lookupPlayers, {rating: rating})
       }
-      let searchName = name + (rating ? ` ${rating}`: '');
+      
       if (!lookupPlayers.length) {
         return msg.say(`Sorry ${msg.author}, ${dbResults.items.length} players matched '${name}', but none are rated ${rating}`);
       }
 
       let truncatedResults = lookupPlayers.slice(0,4);
       let futbinPrices = await getFutbinPrices(truncatedResults);
-
+      let searchName = name + (rating ? ` ${rating}`: '');
       let preamble = `${exclamations.random()}, ${msg.author}! `;
+
       if (lookupPlayers.length === 1) {
         preamble += `I found a match for '${searchName}', here it is:`;
       } else {
         preamble += `${lookupPlayers.length} players matched '${searchName}', here are the first ${truncatedResults.length}:`;
       }
+
       msg.say(preamble);
+
       truncatedResults.forEach((player) => {
         let prices = futbinPrices[player.id].prices;
         let embed = formatPlayerEmbed(player, prices);
-
         msg.embed(embed);
       });
+
       return;
     }
 

@@ -66,7 +66,7 @@ function formatPlayerEmbed(player, prices) {
 	embed.addField("Club", `${player.club.name} (${player.league.abbrName})`, true);
 	embed.addField("XBOX", `BIN: ${xboxPrice}\nUpdated: ${xboxUpdated}\nRange: ${xboxMin} -> ${xboxMax}`, true);
 	embed.addField("PS", `BIN: ${psPrice}\nUpdated: ${psUpdated}\nRange: ${psMin} -> ${psMax}`, true);
-	embed.addField("PC", `BIN: ${pcPrice}\nUpdated: ${pcUpdated}\nRange: ${pcMin} -> ${pcMax}`, true);
+	//embed.addField("PC", `BIN: ${pcPrice}\nUpdated: ${pcUpdated}\nRange: ${pcMin} -> ${pcMax}`, true);
         embed.setFooter(`goalbot v${version} | prices from FUTBIN | made w ❤️💡💪 by ajpiano`, "https://static-cdn.jtvnw.net/badges/v1/cce0dfdc-5160-4c9c-9c4b-b02dc4a684b2/1");
 	return embed;
 }

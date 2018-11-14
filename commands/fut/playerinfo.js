@@ -40,6 +40,7 @@ function formatPlayerEmbed(player, prices) {
 	let [xboxPrice, psPrice, pcPrice] = [prices.xbox.LCPrice, prices.ps.LCPrice, prices.pc.LCPrice];
 	let [xboxMin, psMin, pcMin] = [prices.xbox.MinPrice, prices.ps.MinPrice, prices.pc.MinPrice];
 	let [xboxMax, psMax, pcMax] = [prices.xbox.MaxPrice, prices.ps.MaxPrice, prices.pc.MaxPrice];
+	let [xboxUpdated, psUpdated, pcUpdated] = [prices.xbox.updated, prices.ps.updated, prices.pc.updated];
 	let nationInfo = _.find(countries, {name: player.nation.name});
 	let flagEmoji = "";
 	if (nationInfo) {
@@ -59,13 +60,14 @@ function formatPlayerEmbed(player, prices) {
 	if (cardTypeName.length) {
 		embed.setTitle(cardTypeName);
 	}
-	embed.setDescription(attrsString);
+        let keyStats = `**WR**: ${player.atkWorkRate.substr(0,1)}/${player.defWorkRate.substr(0,1)} **SM**: ${player.skillMoves}★ **WF**:${player.weakFoot}★`;
+	embed.setDescription(`${attrsString}\n${keyStats}`);
 	embed.addField("Nation", player.nation.abbrName, true);
 	embed.addField("Club", `${player.club.name} (${player.league.abbrName})`, true);
-	embed.addField("XBOX", `BIN: ${xboxPrice}\nRange: ${xboxMin} -> ${xboxMax}`, true);
-	embed.addField("PS", `BIN: ${psPrice}\nRange: ${psMin} -> ${psMax}`, true);
-	embed.addField("PC", `BIN: ${pcPrice}\nRange: ${pcMin} -> ${pcMax}`, true);
-        embed.setFooter(`goalbot v${version}, made with ❤️💡💪 by ajpiano`, "https://static-cdn.jtvnw.net/badges/v1/cce0dfdc-5160-4c9c-9c4b-b02dc4a684b2/1");
+	embed.addField("XBOX", `BIN: ${xboxPrice}\nUpdated: ${xboxUpdated}\nRange: ${xboxMin} -> ${xboxMax}`, true);
+	embed.addField("PS", `BIN: ${psPrice}\nUpdated: ${psUpdated}\nRange: ${psMin} -> ${psMax}`, true);
+	embed.addField("PC", `BIN: ${pcPrice}\nUpdated: ${pcUpdated}\nRange: ${pcMin} -> ${pcMax}`, true);
+        embed.setFooter(`goalbot v${version} | prices from FUTBIN | made w ❤️💡💪 by ajpiano`, "https://static-cdn.jtvnw.net/badges/v1/cce0dfdc-5160-4c9c-9c4b-b02dc4a684b2/1");
 	return embed;
 }
 

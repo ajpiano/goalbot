@@ -5,7 +5,8 @@ require("now-env");
 const path = require('path');
 const Commando = require('discord.js-commando');
 const client = new Commando.Client({
-  owner: process.env.DISCORD_OWNERID
+  owner: process.env.DISCORD_OWNERID,
+  unknownCommandResponse: false
 });
 
 client

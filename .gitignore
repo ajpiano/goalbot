@@ -1,5 +1,7 @@
 # Deployment secrets
 now-secrets.json
+now-secrets.dev.json
+now-secrets.prod.json
 
 # Logs
 logs

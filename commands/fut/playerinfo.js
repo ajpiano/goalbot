@@ -5,6 +5,7 @@ const _ = require("lodash");
 const flag = require('emoji-flag');
 const countries = require('country-list/data');
 const exclamations = require('exclamation');
+const convert = require('convert-units');
 const rarities = require('../../lib/futitemraritytunables').rarities;
 const version = require('../../package').version;
 
@@ -39,6 +40,18 @@ function formatPrettyName(player) {
 	return `${player.firstName} ${player.lastName} ${player.commonName ? '(' + player.commonName + ')' : '' }`;
 }
 
+function formatHeight(cm) {
+  let feet = convert(cm).from('cm').to('ft');
+  let roundFeet = Math.floor(feet);
+  let inches = Math.round(convert(feet - roundFeet).from('ft').to('in'));
+  return `${roundFeet}'${inches}'/${cm/100}m`;
+}
+
+function formatWeight(kg) {
+  let pounds = Math.round(convert(kg).from('kg').to('lb'));
+  return `${pounds}lb/${kg}kg`;
+}
+
 function formatPlayerEmbed(player, prices) {
 	let embed = new RichEmbed();
 	let [xboxPrice, psPrice, pcPrice] = [prices.xbox.LCPrice, prices.ps.LCPrice, prices.pc.LCPrice];
@@ -65,7 +78,8 @@ function formatPlayerEmbed(player, prices) {
 		embed.setTitle(cardTypeName);
 	}
         let keyStats = `**WR**: ${player.atkWorkRate.substr(0,1)}/${player.defWorkRate.substr(0,1)} **SM**: ${player.skillMoves}★ **WF**:${player.weakFoot}★`;
-	embed.setDescription(`${attrsString}\n${keyStats}`);
+        let phyStats = `👣 ${player.foot.substr(0,1)} 📏 ${formatHeight(player.height)} ⚖️ ${formatWeight(player.weight)}`;
+	embed.setDescription(`${attrsString}\n${keyStats}\n${phyStats}`);
 	embed.addField("Nation", player.nation.abbrName, true);
 	embed.addField("Club", `${player.club.name} (${player.league.abbrName})`, true);
 	embed.addField("XBOX", `BIN: ${xboxPrice}\nUpdated: ${xboxUpdated}\nRange: ${xboxMin} -> ${xboxMax}`, true);

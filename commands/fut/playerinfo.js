@@ -1,92 +1,21 @@
 const { Command, FriendlyError } = require('discord.js-commando');
-const { RichEmbed } = require('discord.js');
-const rp = require("request-promise");
 const _ = require("lodash");
-const flag = require('emoji-flag');
-const countries = require('country-list/data');
-const exclamations = require('exclamation');
-const convert = require('convert-units');
-const rarities = require('../../lib/futitemraritytunables').rarities;
-const version = require('../../package').version;
 
+const exclamations = require('exclamation');
 // Apparently this is something Robin said during the 1960s Batman TV show. However, it's not something that should be flying into discord price messages for FUT players.
 exclamations.all = _.without(exclamations.all, 'Holy Holocaust');
 exclamations.random = () => exclamations.all[Math.floor(Math.random() * exclamations.all.length)];
 
-countries.push({code: 'NL', name: 'Holland'});
+const searchFutDB = require("../../api/ea-fut-db");
+const getFutbinPrices = require("../../api/futbin-price");
+const generateBasePlayerEmbed = require("../../formatters/base-player-embed");
 
-async function searchFutDB(term) {
-  return rp(`https://www.easports.com/fifa/ultimate-team/api/fut/item?jsonParamObject=%7B%22name%22:%22${encodeURIComponent(term)}%22%7D`).then((resp) => {
-    let apiResp = JSON.parse(resp)
-    return apiResp;
-  });
-}
-async function getFutbinPrices(players) {
-	let ids = players.length ? _.map(players,"id").join(",") : players.id;
-        let reqUrl = `https://www.futbin.com/19/playerPrices?player=&all_versions=${ids}`;
-	return rp(reqUrl).then(function(resp) {
-		let playerPrices = JSON.parse(resp);
-		playerPrices = _.reduce(playerPrices,(obj, p, id) => {
-			if (id > 0) {
-				obj[id] = p;
-			}
-			return obj;
-		},{});
-		return playerPrices;
-	});
-}
-
-function formatPrettyName(player) {
-	return `${player.firstName} ${player.lastName} ${player.commonName ? '(' + player.commonName + ')' : '' }`;
-}
-
-function formatHeight(cm) {
-  let feet = convert(cm).from('cm').to('ft');
-  let roundFeet = Math.floor(feet);
-  let inches = Math.round(convert(feet - roundFeet).from('ft').to('in'));
-  return `${roundFeet}'${inches}'/${cm/100}m`;
-}
-
-function formatWeight(kg) {
-  let pounds = Math.round(convert(kg).from('kg').to('lb'));
-  return `${pounds}lb/${kg}kg`;
-}
-
-function formatPlayerEmbed(player, prices) {
-	let embed = new RichEmbed();
-	let [xboxPrice, psPrice, pcPrice] = [prices.xbox.LCPrice, prices.ps.LCPrice, prices.pc.LCPrice];
-	let [xboxMin, psMin, pcMin] = [prices.xbox.MinPrice, prices.ps.MinPrice, prices.pc.MinPrice];
-	let [xboxMax, psMax, pcMax] = [prices.xbox.MaxPrice, prices.ps.MaxPrice, prices.pc.MaxPrice];
-	let [xboxUpdated, psUpdated, pcUpdated] = [prices.xbox.updated, prices.ps.updated, prices.pc.updated];
-	let nationInfo = _.find(countries, {name: player.nation.name});
-	let flagEmoji = "";
-	if (nationInfo) {
-		flagEmoji = flag(nationInfo.code) + " ";
-	}
-	let cardTypeInfo = _.find(rarities, {id: player.rarityId});
-	let cardTypeName = "";
-	if (cardTypeInfo) {
-		cardTypeName = _.startCase(_.camelCase(`${cardTypeInfo.name} ${player.quality}`));
-		embed.setColor(`${cardTypeInfo.colorArray[0]}`.substr(0,6));
-	}
-	embed.setThumbnail(player.headshot.imgUrl);
-	embed.setAuthor(`${flagEmoji} ${formatPrettyName(player)} - ${player.rating} ${player.position} `, player.club.imageUrls.dark.small);
-	let attrsString = player.attributes.map((a) => {
-		return `**${a.name.split(".")[2]}**: ${a.value}`;
-	}).join(" ");
-	if (cardTypeName.length) {
-		embed.setTitle(cardTypeName);
-	}
-        let keyStats = `**WR**: ${player.atkWorkRate.substr(0,1)}/${player.defWorkRate.substr(0,1)} **SM**: ${player.skillMoves}★ **WF**:${player.weakFoot}★`;
-        let phyStats = `👣 ${player.foot.substr(0,1)} 📏 ${formatHeight(player.height)} ⚖️ ${formatWeight(player.weight)}`;
-	embed.setDescription(`${attrsString}\n${keyStats}\n${phyStats}`);
-	embed.addField("Nation", player.nation.abbrName, true);
-	embed.addField("Club", `${player.club.name} (${player.league.abbrName})`, true);
-	embed.addField("XBOX", `BIN: ${xboxPrice}\nUpdated: ${xboxUpdated}\nRange: ${xboxMin} -> ${xboxMax}`, true);
-	embed.addField("PS", `BIN: ${psPrice}\nUpdated: ${psUpdated}\nRange: ${psMin} -> ${psMax}`, true);
-	//embed.addField("PC", `BIN: ${pcPrice}\nUpdated: ${pcUpdated}\nRange: ${pcMin} -> ${pcMax}`, true);
-        embed.setFooter(`goalbot v${version} | prices from FUTBIN | made w ❤️💡💪 by ajpiano`, "https://static-cdn.jtvnw.net/badges/v1/cce0dfdc-5160-4c9c-9c4b-b02dc4a684b2/1");
-	return embed;
+function formatPlayerInfoEmbed(player, prices) {
+  let embed = generateBasePlayerEmbed(player, prices);
+  embed.addField("XBOX", `BIN: ${prices.xbox.LCPrice}\nUpdated: ${prices.xbox.updated}\nRange: ${prices.xbox.MinPrice} -> ${prices.xbox.MaxPrice}`, true);
+  embed.addField("PS", `BIN: ${prices.ps.LCPrice}\nUpdated: ${prices.ps.updated}\nRange: ${prices.ps.MinPrice} -> ${prices.ps.MaxPrice}`, true);
+  //embed.addField("PC", `BIN: ${prices.pc.LCPrice}\nUpdated: ${prices.pc.updated}\nRange: ${prices.pc.MinPrice} -> ${prices.pc.MaxPrice}`, true);
+  return embed;
 }
 
 module.exports = class ReplyCommand extends Command {
@@ -129,7 +58,7 @@ module.exports = class ReplyCommand extends Command {
       if (rating) {
         lookupPlayers = _.filter(lookupPlayers, {rating: rating})
       }
-      
+
       if (!lookupPlayers.length) {
         return msg.say(`Sorry ${msg.author}, ${dbResults.items.length} players matched '${name}', but none are rated ${rating}`);
       }
@@ -149,7 +78,7 @@ module.exports = class ReplyCommand extends Command {
 
       truncatedResults.forEach((player) => {
         let prices = futbinPrices[player.id].prices;
-        let embed = formatPlayerEmbed(player, prices);
+        let embed = formatPlayerInfoEmbed(player, prices);
         msg.embed(embed);
       });
 

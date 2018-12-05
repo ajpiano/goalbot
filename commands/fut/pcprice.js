@@ -5,6 +5,7 @@ const exclamations = require('../../lib/our-exclamations');
 
 const findMatchingPlayers = require("../../api/find-matching-players");
 const generateBasePlayerEmbed = require("../../formatters/base-player-embed");
+const playerSearchArguments = require("../../lib/player-search-arguments");
 
 function formatPlayerInfoEmbed(player, prices) {
   let embed = generateBasePlayerEmbed(player, prices);
@@ -21,18 +22,7 @@ module.exports = class ReplyCommand extends Command {
       memberName: 'pcprice',
       description: 'Looks up basic player info from EA FUT DB + latest price on PC Market from FUTBIN',
       examples: ['players mertens', 'players mertens 87', 'players "dries mertens"', 'players "dries mertens" 87'],
-      args: [
-        {
-          key: 'name',
-          prompt: 'Which player(s) do you want to search for? Use quotes if searching with spaces',
-          type: 'string'
-        }, {
-          key: 'rating',
-          prompt: 'Which rating should we match on?',
-          type: 'integer',
-          default: ''
-        }
-      ]
+      args: playerSearchArguments
     });
   }
 

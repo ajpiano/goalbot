@@ -21,8 +21,8 @@
   },
   "devDependencies": {},
   "scripts": {
-    "start": "node index",
-    "now-start": "node index"
+    "start": "node --harmony index",
+    "now-start": "node --harmony index"
   },
   "repository": {
     "type": "git",

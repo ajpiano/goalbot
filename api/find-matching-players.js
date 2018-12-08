@@ -24,7 +24,7 @@ async function* findMatchingPlayers(msg, name, rating) {
         yield `${dbResults.items.length} players matched '${name}', but none are rated ${rating}`;
       }
 
-      let truncatedResults = lookupPlayers.slice(0,4);
+      let truncatedResults = lookupPlayers.slice(0,10);
       let futbinPrices = await getFutbinPrices(truncatedResults);
       let searchName = name + (rating ? ` ${rating}`: '');
       yield {matches: truncatedResults, prices: futbinPrices, totalMatches: lookupPlayers.length, search: searchName};

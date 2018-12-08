@@ -1,7 +1,7 @@
 const convert = require('convert-units');
  
 function formatPrettyName(player) {
-  return `${player.firstName} ${player.lastName} ${player.commonName ? '(' + player.commonName + ')' : '' }`;
+  return `${player.firstName} ${player.lastName}${player.commonName ? ' (' + player.commonName + ')' : '' }`;
 }
 
 function formatHeight(cm) {

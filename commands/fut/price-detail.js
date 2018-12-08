@@ -3,6 +3,7 @@ const _ = require("lodash");
 const exclamations = require('../../lib/our-exclamations');
 
 const playerSearchArguments = require("../../lib/player-search-arguments");
+const PlayerSearchRefiner = require("../../lib/refine-player-arguments");
 const findMatchingPlayers = require("../../api/find-matching-players");
 const getFutbinPriceHistory = require("../../lib/get-futbin-price-history");
 const generateBasePlayerEmbed = require("../../formatters/base-player-embed");
@@ -70,10 +71,19 @@ module.exports = class ReplyCommand extends Command {
         let preamble = `${exclamations.random()}, ${msg.author}! `;
         if (players.totalMatches === 1) {
           preamble += `I found a match for '${players.search}', here is detailed information about its price:`;
+          msg.say(preamble);
         } else {
-          preamble += `${players.totalMatches} players matched '${players.search}', here is detailed price information about the first ${players.matches.length}:`;
+          preamble += `${players.totalMatches} players matched '${players.search}', please select one:`;
+          msg.say(preamble);
+          let refiner = new PlayerSearchRefiner(this.client, msg, players)
+          let choice = await refiner.collector.obtain(msg);
+          if (choice.values) {
+            players.matches = [players.matches[choice.values.index-1]];
+          } else {
+            msg.reply("No selection made, cancelling command.");
+            return;
+          }
         }
-        msg.say(preamble);
 
         players.matches.forEach(async (player) => {
           let prices = players.prices[player.id].prices;

@@ -8,7 +8,7 @@ const { formatPrettyName } = require("./string");
 countries.push({code: 'NL', name: 'Holland'});
 
 function formatRefinePlayerList(players) {
-  let choiceList = players.matches.map((player, i) => {
+  let choiceList = players.map((player, i) => {
     let nationInfo = _.find(countries, {name: player.nation.name});
     let flagEmoji = "";
     if (nationInfo) {

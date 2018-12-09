@@ -1,6 +1,4 @@
 const { Command, FriendlyError } = require('discord.js-commando');
-const _ = require("lodash");
-const exclamations = require('../../lib/our-exclamations');
 
 const playerSearchArguments = require("../../lib/player-search-arguments");
 const PlayerSearchRefiner = require("../../lib/refine-player-arguments");
@@ -8,10 +6,10 @@ const findMatchingPlayers = require("../../api/find-matching-players");
 const getFutbinPriceHistory = require("../../lib/get-futbin-price-history");
 const generateBasePlayerEmbed = require("../../formatters/base-player-embed");
 
-function formatPriceDetailEmbed(player, prices, priceHistory) {
-  let embed = generateBasePlayerEmbed(player, prices);
-  embed.addField("XBOX", formatPlatformPriceDetail(prices.xbox, priceHistory.xbox), true);
-  embed.addField("PS", formatPlatformPriceDetail(prices.ps, priceHistory.ps), true);
+function formatPriceDetailEmbed(player) {
+  let embed = generateBasePlayerEmbed(player, player.prices);
+  embed.addField("XBOX", formatPlatformPriceDetail(player.prices.xbox, player.priceHistory.xbox), true);
+  embed.addField("PS", formatPlatformPriceDetail(player.prices.ps, player.priceHistory.ps), true);
   return embed;
 }
 
@@ -61,37 +59,10 @@ module.exports = class ReplyCommand extends Command {
   }
 
   async run(msg, { name, rating }) {
-    let matchingPlayers = findMatchingPlayers(msg, name, rating);
-    let result = await matchingPlayers.next();
-    if (!result.done) {
-      let players = result.value;
-      if (_.isString(players)) {
-        return msg.say(`Sorry ${msg.author}, ${players}`);
-      } else {
-        let preamble = `${exclamations.random()}, ${msg.author}! `;
-        if (players.totalMatches === 1) {
-          preamble += `I found a match for '${players.search}', here is detailed information about its price:`;
-          msg.say(preamble);
-        } else {
-          preamble += `${players.totalMatches} players matched '${players.search}', please select one:`;
-          msg.say(preamble);
-          let refiner = new PlayerSearchRefiner(this.client, msg, players)
-          let choice = await refiner.collector.obtain(msg);
-          if (choice.values) {
-            players.matches = [players.matches[choice.values.index-1]];
-          } else {
-            msg.reply("No selection made, cancelling command.");
-            return;
-          }
-        }
-
-        players.matches.forEach(async (player) => {
-          let prices = players.prices[player.id].prices;
-          let priceHistory = await getFutbinPriceHistory(player, prices);
-          let embed = formatPriceDetailEmbed(player, prices, priceHistory);
-          msg.embed(embed);
-        })
-      }
+    let matchingPlayers = findMatchingPlayers(this.client, msg, name, rating, true);
+    for await (const player of matchingPlayers) {
+      let embed = formatPriceDetailEmbed(player);
+      msg.embed(embed);
     }
     return;
   }

@@ -1,15 +1,13 @@
 const { Command, FriendlyError } = require('discord.js-commando');
-const _ = require("lodash");
-const exclamations = require('../../lib/our-exclamations');
 
 const findMatchingPlayers = require("../../api/find-matching-players");
 const generateBasePlayerEmbed = require("../../formatters/base-player-embed");
 const playerSearchArguments = require("../../lib/player-search-arguments");
 
-function formatPlayerInfoEmbed(player, prices) {
-  let embed = generateBasePlayerEmbed(player, prices);
-  embed.addField("XBOX", `BIN: ${prices.xbox.LCPrice}\nUpdated: ${prices.xbox.updated}\nRange: ${prices.xbox.MinPrice} -> ${prices.xbox.MaxPrice}`, true);
-  embed.addField("PS", `BIN: ${prices.ps.LCPrice}\nUpdated: ${prices.ps.updated}\nRange: ${prices.ps.MinPrice} -> ${prices.ps.MaxPrice}`, true);
+function formatPlayerInfoEmbed(player) {
+  let embed = generateBasePlayerEmbed(player, player.prices);
+  embed.addField("XBOX", `BIN: ${player.prices.xbox.LCPrice}\nUpdated: ${player.prices.xbox.updated}\nRange: ${player.prices.xbox.MinPrice} -> ${player.prices.xbox.MaxPrice}`, true);
+  embed.addField("PS", `BIN: ${player.prices.ps.LCPrice}\nUpdated: ${player.prices.ps.updated}\nRange: ${player.prices.ps.MinPrice} -> ${player.prices.ps.MaxPrice}`, true);
   return embed;
 }
 
@@ -27,27 +25,10 @@ module.exports = class ReplyCommand extends Command {
   }
 
   async run(msg, { name, rating }) {
-    let matchingPlayers = findMatchingPlayers(msg, name, rating);
-    let result = await matchingPlayers.next();
-    if (!result.done) {
-      let players = result.value;
-      if (_.isString(players)) {
-        return msg.say(`Sorry ${msg.author}, ${players}`);
-      } else {
-        let preamble = `${exclamations.random()}, ${msg.author}! `;
-        if (players.totalMatches === 1) {
-          preamble += `I found a match for '${players.search}', here it is:`;
-        } else {
-          preamble += `${players.totalMatches} players matched '${players.search}', here are the first ${players.matches.length}:`;
-        }
-        msg.say(preamble);
-
-        players.matches.forEach((player) => {
-          let prices = players.prices[player.id].prices;
-          let embed = formatPlayerInfoEmbed(player, prices);
-          msg.embed(embed);
-        })
-      }
+    let matchingPlayers = findMatchingPlayers(this.client, msg, name, rating);
+    for await (const player of matchingPlayers) {
+      let embed = formatPlayerInfoEmbed(player);
+      msg.embed(embed);
     }
     return;
   }

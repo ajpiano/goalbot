@@ -11,6 +11,7 @@ async function* findMatchingPlayers(client, msg, name, rating, history=false) {
     let dbResults = await searchFutDB(name);
     let failurePrefix = `Sorry ${msg.author}`;
     let successPrefix = `${exclamations.random()}, ${msg.author}!`;
+    let successMsg = "";
 
     if (!dbResults.totalResults) {
       msg.say(`${failurePrefix}, No players found matching '${name}'`);
@@ -33,18 +34,18 @@ async function* findMatchingPlayers(client, msg, name, rating, history=false) {
       }
 
       if (lookupPlayers.length === 1) {
-          msg.say(`${successPrefix} I found a match for '${searchName}'`);
+         successMessage = `${successPrefix} I found a match for '${searchName}':`;
       }
 
       if (lookupPlayers.length > 1) {
         msg.say(`${successPrefix} ${lookupPlayers.length} players matched '${searchName}', please select one:`);
         let refiner = new PlayerSearchRefiner(client, msg, lookupPlayers);
-        let choice = await refiner.collector.obtain(msg);
-        if (choice.values) {
-          lookupPlayers = lookupPlayers.slice(choice.values.index-1, choice.values.index);
+        lookupPlayers = await refiner.refine();
+        if (lookupPlayers === false) {
+          throw new FriendlyError(`${failurePrefix}, I didn't get your answer there and have canceled the request.`)
         } else {
-          new FriendlyError("${failurePrefix}, something went wrong refining the players.")
-        }
+          successMessage = `Thanks for getting back to me, ${msg.author}! Here's the player you requested:`;
+        } 
       }
 
       let futbinPrices = await getFutbinPrices(lookupPlayers);
@@ -53,6 +54,7 @@ async function* findMatchingPlayers(client, msg, name, rating, history=false) {
       if (history) {
           matchedPlayer.priceHistory = await getFutbinPriceHistory(matchedPlayer, matchedPlayer.prices);
       }
+      msg.say(successMessage);
       yield matchedPlayer;
       return;
     }

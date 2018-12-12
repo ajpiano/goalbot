@@ -41,7 +41,7 @@ async function* findMatchingPlayers(client, msg, name, rating, history=false) {
         let refiner = new PlayerSearchRefiner(client, msg, searchName, lookupPlayers);
         lookupPlayers = await refiner.refine();
         if (lookupPlayers === false) {
-          throw new FriendlyError(`${failurePrefix}, I didn't get your answer there and have canceled the request.`)
+          throw new FriendlyError(`Sorry, I didn't get your answer there and have canceled the request.`)
         } else {
           successMessage = `Thanks for getting back to me, ${msg.author}! Here's the player you requested:`;
         } 

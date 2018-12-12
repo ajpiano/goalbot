@@ -10,7 +10,7 @@ countries.push({code: 'NL', name: 'Holland'});
 
 function formatRefinePlayerList(players) {
   var table = AsciiTable.factory({
-    heading: [ 'Choice', 'Name', 'OVR', 'VER', 'Nation', 'Club', 'League'],
+    heading: [ 'Choice', 'Name', 'OVR', 'Version'],
     rows: players.map((player, i) => {
       let nationInfo = _.find(countries, {name: player.nation.name});
       let flagEmoji = "";
@@ -19,7 +19,7 @@ function formatRefinePlayerList(players) {
       if (cardTypeInfo) {
         cardTypeName = _.startCase(_.camelCase(`${cardTypeInfo.name} ${player.quality}`));
       }
-      return [i+1, formatShortName(player), player.rating, cardTypeName, player.nation.abbrName, player.club.abbrName, player.league.abbrName];
+      return [i+1, formatShortName(player), player.rating, cardTypeName];
     })
   });
   return table.toString();

@@ -38,8 +38,7 @@ async function* findMatchingPlayers(client, msg, name, rating, history=false) {
       }
 
       if (lookupPlayers.length > 1) {
-        msg.say(`${successPrefix} ${lookupPlayers.length} players matched '${searchName}', please select one:`);
-        let refiner = new PlayerSearchRefiner(client, msg, lookupPlayers);
+        let refiner = new PlayerSearchRefiner(client, msg, searchName, lookupPlayers);
         lookupPlayers = await refiner.refine();
         if (lookupPlayers === false) {
           throw new FriendlyError(`${failurePrefix}, I didn't get your answer there and have canceled the request.`)

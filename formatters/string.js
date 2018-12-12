@@ -4,6 +4,10 @@ function formatPrettyName(player) {
   return `${player.firstName} ${player.lastName}${player.commonName ? ' (' + player.commonName + ')' : '' }`;
 }
 
+function formatShortName(player) {
+  return player.commonName || `${player.firstName} ${player.lastName}`;
+}
+
 function formatHeight(cm) {
   let feet = convert(cm).from('cm').to('ft');
   let roundFeet = Math.floor(feet);
@@ -16,4 +20,4 @@ function formatWeight(kg) {
   return `${pounds}lb/${kg}kg`;
 }
 
-module.exports = { formatPrettyName, formatHeight, formatWeight };
+module.exports = { formatPrettyName, formatShortName, formatHeight, formatWeight };

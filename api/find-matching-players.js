@@ -11,7 +11,10 @@ async function* findMatchingPlayers(client, msg, name, rating, history=false) {
     let dbResults = await searchFutDB(name);
     let failurePrefix = `Sorry ${msg.author}`;
     let successPrefix = `${exclamations.random()}, ${msg.author}!`;
-    let successMsg = "";
+    let successMessage = "";
+    let pendingPrefix = `Thanks for getting back to me, ${msg.author}!`;
+    let pendingMessage;
+    let waitMessage = `Hang on a moment while I fetch the price data from FUTBIN...`;
 
     if (!dbResults.totalResults) {
       msg.say(`${failurePrefix}, No players found matching '${name}'`);
@@ -34,7 +37,9 @@ async function* findMatchingPlayers(client, msg, name, rating, history=false) {
       }
 
       if (lookupPlayers.length === 1) {
-         successMessage = `${successPrefix} I found a match for '${searchName}':`;
+         pendingPrefix = `${successPrefix} I found a match for '${searchName}':`;
+         pendingMessage = await msg.say(`${pendingPrefix} ${waitMessage}`);
+         successMessage = `${pendingPrefix} Here it is:`
       }
 
       if (lookupPlayers.length > 1) {
@@ -43,7 +48,8 @@ async function* findMatchingPlayers(client, msg, name, rating, history=false) {
         if (lookupPlayers === false) {
           throw new FriendlyError(`Sorry, I didn't get your answer there and have canceled the request.`)
         } else {
-          successMessage = `Thanks for getting back to me, ${msg.author}! Here's the player you requested:`;
+          pendingMessage = await msg.say(`${pendingPrefix} ${waitMessage}`);
+          successMessage = `${pendingPrefix} Here's the player you requested:`
         } 
       }
 
@@ -53,7 +59,7 @@ async function* findMatchingPlayers(client, msg, name, rating, history=false) {
       if (history) {
           matchedPlayer.priceHistory = await getFutbinPriceHistory(matchedPlayer, matchedPlayer.prices);
       }
-      msg.say(successMessage);
+      await pendingMessage.edit(successMessage);
       yield matchedPlayer;
       return;
     }

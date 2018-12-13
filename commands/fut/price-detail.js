@@ -1,9 +1,7 @@
 const { Command, FriendlyError } = require('discord.js-commando');
 
 const playerSearchArguments = require("../../lib/player-search-arguments");
-const PlayerSearchRefiner = require("../../lib/refine-player-arguments");
 const findMatchingPlayers = require("../../api/find-matching-players");
-const getFutbinPriceHistory = require("../../lib/get-futbin-price-history");
 const generateBasePlayerEmbed = require("../../formatters/base-player-embed");
 
 function formatPriceDetailEmbed(player) {

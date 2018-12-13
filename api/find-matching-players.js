@@ -3,8 +3,8 @@ const _ = require("lodash");
 const exclamations = require('../lib/our-exclamations');
 const searchFutDB = require("./ea-fut-db");
 const getFutbinPrices = require("./futbin-price");
-const getFutbinPriceHistory = require("../lib/get-futbin-price-history");
-const PlayerSearchRefiner = require("../lib/refine-player-arguments");
+const getFutbinPriceHistory = require("./get-futbin-price-history");
+const PlayerSearchRefiner = require("../lib/player-search-refiner");
 
 async function* findMatchingPlayers(client, msg, name, rating, history=false) {
 

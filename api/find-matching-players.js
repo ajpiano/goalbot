@@ -37,9 +37,9 @@ async function* findMatchingPlayers(client, msg, name, rating, history=false) {
       }
 
       if (lookupPlayers.length === 1) {
-         pendingPrefix = `${successPrefix} I found a match for '${searchName}':`;
+         pendingPrefix = `${successPrefix} I found a match for '${searchName}' -`;
          pendingMessage = await msg.say(`${pendingPrefix} ${waitMessage}`);
-         successMessage = `${pendingPrefix} Here it is:`
+         successMessage = `${pendingPrefix} here it is:`
       }
 
       if (lookupPlayers.length > 1) {

@@ -7,19 +7,18 @@ const { formatPlatformPriceDetail, formatBins, formatPriceHistory } = require(".
 
 function formatPriceDetailEmbed(player) {
   let embed = generateBasePlayerEmbed(player, player.prices);
-  embed.addField("XBOX", formatPlatformPriceDetail(player.prices.xbox, player.priceHistory.xbox), true);
-  embed.addField("PS", formatPlatformPriceDetail(player.prices.ps, player.priceHistory.ps), true);
+  embed.addField("PC", formatPlatformPriceDetail(player.prices.pc, player.priceHistory.pc), true);
   return embed;
 }
 
 module.exports = class ReplyCommand extends Command {
   constructor(client) {
     super(client, {
-      name: 'price-detail',
-      aliases: ['pd'],
+      name: 'pc-price-detail',
+      aliases: ['pcpd'],
       group: 'fut',
-      memberName: 'price-detail',
-      description: 'Looks up detailed price current and historical price information from EA FUT DB + FUTBIN',
+      memberName: 'pc-price-detail',
+      description: 'Looks up detailed price current and historical price information for the PC platform from EA FUT DB + FUTBIN',
       examples: ['pd mertens 87'],
       args: playerSearchArguments
     });

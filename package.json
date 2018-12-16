@@ -1,6 +1,6 @@
 {
   "name": "goalbot",
-  "version": "1.5.0",
+  "version": "1.6.0",
   "description": "A Discord Chatbot for FUT/Football Events",
   "main": "bot.js",
   "dependencies": {

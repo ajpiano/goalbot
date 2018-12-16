@@ -18,7 +18,7 @@ module.exports = class ReplyCommand extends Command {
       aliases: ['pcpd'],
       group: 'fut',
       memberName: 'pc-price-detail',
-      description: 'Looks up detailed price current and historical price information for the PC platform from EA FUT DB + FUTBIN',
+      description: 'Looks up detailed current and historical price information for the PC platform from EA FUT DB + FUTBIN',
       examples: ['pd mertens 87'],
       args: playerSearchArguments
     });

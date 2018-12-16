@@ -13,10 +13,10 @@ function formatPlayerInfoEmbed(player) {
 module.exports = class ReplyCommand extends Command {
   constructor(client) {
     super(client, {
-      name: 'pcprice',
+      name: 'pc-price',
       aliases: ['pc', 'pcp'],
       group: 'fut',
-      memberName: 'pcprice',
+      memberName: 'pc-price',
       description: 'Looks up basic player info from EA FUT DB + latest price on PC Market from FUTBIN',
       examples: ['players mertens', 'players mertens 87', 'players "dries mertens"', 'players "dries mertens" 87'],
       args: playerSearchArguments

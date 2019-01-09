@@ -20,7 +20,7 @@ function formatBasePlayerEmbed(player, prices) {
   let cardTypeName = "";
   if (cardTypeInfo) {
     cardTypeName = _.startCase(_.camelCase(`${cardTypeInfo.name} ${player.quality}`));
-    embed.setColor(`${cardTypeInfo.colorArray[0]}`.substr(0,6));
+    embed.setColor(_.last(cardTypeInfo.colors).toString(16));
   }
   embed.setThumbnail(player.headshot.imgUrl);
   embed.setAuthor(`${flagEmoji} ${formatPrettyName(player)} - ${player.rating} ${player.position} `, player.club.imageUrls.dark.small);

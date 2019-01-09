@@ -2,1337 +2,1097 @@
   "version": 1,
   "rarities": [
     {
+      "colors": [
+        2826775,
+        4207394,
+        9926482,
+        12162669,
+        2500906,
+        3422265,
+        9080721,
+        11449269,
+        4471330,
+        5720619,
+        12823398,
+        15060360
+      ],
+      "lgColorIndices": [
+        1,
+        1,
+        1,
+        2,
+        1,
+        3,
+        3,
+        4,
+        1
+      ],
+      "smColorIndices": [
+        1,
+        -1,
+        1,
+        2,
+        1,
+        3,
+        3,
+        4,
+        1
+      ],
+      "version": 0,
       "id": 0,
       "name": "COMMON",
-      "colorsPerLevel": 4,
-      "colorArray": [
-	2826775,
-	4207394,
-	9926482,
-	12162669,
-	2500906,
-	3422265,
-	9080721,
-	11449269,
-	4471330,
-	5720619,
-	12823398,
-	15060360
-      ],
-      "expColorIndices": [
-	1,
-	1,
-	1,
-	2,
-	1,
-	3,
-	3,
-	4,
-	1
-      ],
-      "collColorIndices": [
-	1,
-	1,
-	1,
-	2,
-	1,
-	3,
-	3,
-	4,
-	1
-      ],
-      "smallColorIndices": [
-	1,
-	-1,
-	1,
-	2,
-	1,
-	3,
-	3,
-	4,
-	1
-      ],
       "levels": true,
+      "colorsPerLevel": 4,
       "shell": 0,
-      "version": 0
+      "bigHead": false,
+      "embargoTime": 0
     },
     {
+      "colors": [
+        3811095,
+        5124892,
+        14133620,
+        8412475,
+        3159350,
+        3751487,
+        11515321,
+        6712434,
+        4602124,
+        6574613,
+        16375419,
+        10846248
+      ],
+      "lgColorIndices": [
+        1,
+        1,
+        1,
+        2,
+        1,
+        3,
+        3,
+        4,
+        1
+      ],
+      "smColorIndices": [
+        1,
+        -1,
+        1,
+        2,
+        1,
+        3,
+        3,
+        4,
+        1
+      ],
+      "version": 1,
       "id": 1,
       "name": "RARE",
-      "colorsPerLevel": 4,
-      "colorArray": [
-	3811095,
-	5124892,
-	14133620,
-	8412475,
-	3159350,
-	3751487,
-	11515321,
-	6712434,
-	4602124,
-	6574613,
-	16375419,
-	10846248
-      ],
-      "expColorIndices": [
-	1,
-	1,
-	1,
-	2,
-	1,
-	3,
-	3,
-	4,
-	1
-      ],
-      "collColorIndices": [
-	1,
-	1,
-	1,
-	2,
-	1,
-	3,
-	3,
-	4,
-	1
-      ],
-      "smallColorIndices": [
-	1,
-	-1,
-	1,
-	2,
-	1,
-	3,
-	3,
-	4,
-	1
-      ],
       "levels": true,
+      "colorsPerLevel": 4,
       "shell": 1,
-      "version": 1,
-      "shineArray": [
-	16772309,
-	15528949,
-	16776166
-      ]
+      "bigHead": false,
+      "embargoTime": 0
     },
     {
+      "version": 0,
       "id": 2,
       "name": "LOCK",
+      "type": 0,
       "levels": false,
-      "version": 0,
-      "type": 0
+      "bigHead": false,
+      "embargoTime": 1604707200
     },
     {
+      "colors": [
+        12292710,
+        9860434,
+        1380363,
+        7556151,
+        11582664,
+        9279136,
+        592912,
+        4674394,
+        15322228,
+        11639640,
+        986376,
+        7364400
+      ],
+      "lgColorIndices": [
+        1,
+        1,
+        1,
+        2,
+        1,
+        3,
+        3,
+        4,
+        0
+      ],
+      "smColorIndices": [
+        1,
+        -1,
+        1,
+        2,
+        1,
+        3,
+        3,
+        4,
+        0
+      ],
+      "version": 1,
       "id": 3,
       "name": "TOTW",
-      "colorsPerLevel": 4,
-      "colorArray": [
-	12292710,
-	9860434,
-	1380363,
-	7556151,
-	11582664,
-	9279136,
-	592912,
-	4674394,
-	15322228,
-	11639640,
-	986376,
-	7364400
-      ],
-      "expColorIndices": [
-	1,
-	1,
-	1,
-	2,
-	1,
-	3,
-	3,
-	4,
-	0
-      ],
-      "collColorIndices": [
-	1,
-	1,
-	1,
-	2,
-	1,
-	3,
-	3,
-	4,
-	0
-      ],
-      "smallColorIndices": [
-	1,
-	-1,
-	1,
-	2,
-	1,
-	3,
-	3,
-	4,
-	0
-      ],
       "levels": true,
+      "colorsPerLevel": 4,
       "shell": 2,
-      "version": 1,
-      "shineArray": [
-	7556151,
-	4674394,
-	7364400
-      ]
+      "bigHead": false,
+      "embargoTime": 0
     },
     {
+      "colors": [
+        13351161,
+        2168651,
+        2366020,
+        5259646
+      ],
+      "lgColorIndices": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        3,
+        4,
+        0
+      ],
+      "smColorIndices": [
+        1,
+        -1,
+        1,
+        1,
+        1,
+        2,
+        3,
+        4,
+        0
+      ],
+      "version": 0,
       "id": 4,
       "name": "HERO",
-      "colorArray": [
-	13351161,
-	2168651,
-	2366020,
-	5259646
-      ],
-      "expColorIndices": [
-	1,
-	1,
-	1,
-	1,
-	1,
-	2,
-	3,
-	4,
-	0
-      ],
-      "collColorIndices": [
-	1,
-	1,
-	1,
-	1,
-	1,
-	2,
-	3,
-	4,
-	0
-      ],
-      "smallColorIndices": [
-	1,
-	-1,
-	1,
-	1,
-	1,
-	2,
-	3,
-	4,
-	0
-      ],
       "levels": false,
       "shell": 2,
-      "version": 0,
-      "shineArray": [
-	5259646
-      ]
+      "bigHead": false,
+      "embargoTime": 1604880000
     },
     {
+      "colors": [
+        15453531,
+        134959,
+        5523743
+      ],
+      "lgColorIndices": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        3,
+        0
+      ],
+      "smColorIndices": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        3,
+        0
+      ],
+      "version": 1,
+      "id": 5,
+      "name": "TOTY",
+      "levels": false,
+      "shell": 2,
+      "bigHead": false,
+      "embargoTime": 1546884000
+    },
+    {
+      "colors": [
+        11926032,
+        10278669,
+        13108485,
+        3356378
+      ],
+      "lgColorIndices": [
+        1,
+        1,
+        1,
+        2,
+        1,
+        3,
+        3,
+        4,
+        0
+      ],
+      "smColorIndices": [
+        1,
+        1,
+        1,
+        2,
+        1,
+        3,
+        3,
+        4,
+        0
+      ],
+      "version": 2,
       "id": 6,
       "name": "RECORDBREAKER",
-      "colorArray": [
-	11926032,
-	10278669,
-	13108485,
-	3356378
-      ],
-      "expColorIndices": [
-	1,
-	1,
-	1,
-	2,
-	1,
-	3,
-	3,
-	4,
-	0
-      ],
-      "collColorIndices": [
-	1,
-	1,
-	1,
-	2,
-	1,
-	3,
-	3,
-	4,
-	0
-      ],
-      "smallColorIndices": [
-	1,
-	1,
-	1,
-	2,
-	1,
-	3,
-	3,
-	4,
-	0
-      ],
       "levels": false,
       "shell": 2,
-      "version": 2,
-      "shineArray": [
-	16496567
-      ]
+      "bigHead": false,
+      "embargoTime": 1604707200
     },
     {
+      "colors": [
+        15132390,
+        14248224,
+        16563559
+      ],
+      "lgColorIndices": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        2,
+        3,
+        0
+      ],
+      "smColorIndices": [
+        1,
+        -1,
+        1,
+        1,
+        1,
+        2,
+        2,
+        3,
+        0
+      ],
+      "version": 0,
       "id": 8,
       "name": "MOTM",
-      "colorArray": [
-	15132390,
-	14248224,
-	16563559
-      ],
-      "expColorIndices": [
-	1,
-	1,
-	1,
-	1,
-	1,
-	2,
-	2,
-	3,
-	0
-      ],
-      "collColorIndices": [
-	1,
-	1,
-	1,
-	1,
-	1,
-	2,
-	2,
-	3,
-	0
-      ],
-      "smallColorIndices": [
-	1,
-	-1,
-	1,
-	1,
-	1,
-	2,
-	2,
-	3,
-	0
-      ],
       "levels": false,
       "shell": 1,
-      "version": 0,
-      "shineArray": [
-	16563559
-      ]
+      "bigHead": false,
+      "embargoTime": 1604707200
     },
     {
+      "colors": [
+        15132390,
+        13581964,
+        16421333
+      ],
+      "lgColorIndices": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        2,
+        3,
+        0
+      ],
+      "smColorIndices": [
+        1,
+        -1,
+        1,
+        1,
+        1,
+        2,
+        2,
+        3,
+        0
+      ],
+      "version": 0,
       "id": 9,
       "name": "FUTTIES",
-      "colorArray": [
-	15132390,
-	13581964,
-	16421333
-      ],
-      "expColorIndices": [
-	1,
-	1,
-	1,
-	1,
-	1,
-	2,
-	2,
-	3,
-	0
-      ],
-      "collColorIndices": [
-	1,
-	1,
-	1,
-	1,
-	1,
-	2,
-	2,
-	3,
-	0
-      ],
-      "smallColorIndices": [
-	1,
-	-1,
-	1,
-	1,
-	1,
-	2,
-	2,
-	3,
-	0
-      ],
       "levels": false,
       "shell": 1,
-      "version": 0,
-      "shineArray": [
-	16421333
-      ]
+      "bigHead": false,
+      "embargoTime": 1604707200
     },
     {
+      "colors": [
+        15132390,
+        2925718,
+        8256495
+      ],
+      "lgColorIndices": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        2,
+        3,
+        0
+      ],
+      "smColorIndices": [
+        1,
+        -1,
+        1,
+        1,
+        1,
+        2,
+        2,
+        3,
+        0
+      ],
+      "version": 0,
       "id": 10,
       "name": "PROPLAYER",
-      "colorArray": [
-	15132390,
-	2925718,
-	8256495
-      ],
-      "expColorIndices": [
-	1,
-	1,
-	1,
-	1,
-	1,
-	2,
-	2,
-	3,
-	0
-      ],
-      "collColorIndices": [
-	1,
-	1,
-	1,
-	1,
-	1,
-	2,
-	2,
-	3,
-	0
-      ],
-      "smallColorIndices": [
-	1,
-	-1,
-	1,
-	1,
-	1,
-	2,
-	2,
-	3,
-	0
-      ],
       "levels": false,
       "shell": 1,
-      "version": 0,
-      "shineArray": [
-	8256495
-      ]
+      "bigHead": false,
+      "embargoTime": 0
     },
     {
+      "colors": [
+        6443543,
+        16777215,
+        14934750,
+        11181679
+      ],
+      "lgColorIndices": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        3,
+        4,
+        1
+      ],
+      "smColorIndices": [
+        1,
+        -1,
+        1,
+        1,
+        1,
+        2,
+        3,
+        4,
+        1
+      ],
+      "version": 3,
       "id": 12,
-      "name": "ICON",
-      "colorArray": [
-	6443543,
-	16777215,
-	14934750,
-	11181679
-      ],
-      "expColorIndices": [
-	1,
-	1,
-	1,
-	1,
-	1,
-	2,
-	3,
-	4,
-	1
-      ],
-      "collColorIndices": [
-	1,
-	1,
-	1,
-	1,
-	1,
-	2,
-	3,
-	4,
-	1
-      ],
-      "smallColorIndices": [
-	1,
-	-1,
-	1,
-	1,
-	1,
-	2,
-	3,
-	4,
-	1
-      ],
+      "name": "LEGEND",
       "levels": false,
       "shell": 2,
-      "version": 3,
-      "shineArray": [
-	16777215
-      ]
+      "bigHead": false,
+      "embargoTime": 0
     },
     {
+      "colors": [
+        15322228,
+        11639640,
+        986376,
+        7364400
+      ],
+      "lgColorIndices": [
+        1,
+        1,
+        1,
+        2,
+        1,
+        3,
+        3,
+        4,
+        0
+      ],
+      "smColorIndices": [
+        1,
+        -1,
+        1,
+        2,
+        1,
+        3,
+        3,
+        4,
+        0
+      ],
+      "version": 2,
       "id": 17,
       "name": "STORY_MODE_HERO",
-      "colorArray": [
-	15322228,
-	11639640,
-	986376,
-	7364400
-      ],
-      "expColorIndices": [
-	1,
-	1,
-	1,
-	2,
-	1,
-	3,
-	3,
-	4,
-	0
-      ],
-      "collColorIndices": [
-	1,
-	1,
-	1,
-	2,
-	1,
-	3,
-	3,
-	4,
-	0
-      ],
-      "smallColorIndices": [
-	1,
-	-1,
-	1,
-	2,
-	1,
-	3,
-	3,
-	4,
-	0
-      ],
       "levels": false,
       "shell": 2,
-      "version": 2,
-      "shineArray": [
-	7364400
-      ]
+      "bigHead": false,
+      "embargoTime": 0
     },
     {
+      "colors": [
+        13806730,
+        12031608,
+        8654606,
+        10317390,
+        12436425,
+        10659757,
+        8654606,
+        9080724,
+        14929795,
+        12232805,
+        8654606,
+        12033114
+      ],
+      "lgColorIndices": [
+        1,
+        1,
+        1,
+        2,
+        1,
+        3,
+        3,
+        4,
+        0
+      ],
+      "smColorIndices": [
+        1,
+        -1,
+        1,
+        2,
+        1,
+        3,
+        3,
+        4,
+        0
+      ],
+      "version": 0,
       "id": 18,
       "name": "CHAMPION_REWARD",
-      "colorsPerLevel": 4,
-      "colorArray": [
-	13806730,
-	12031608,
-	8654606,
-	10317390,
-	12436425,
-	10659757,
-	8654606,
-	9080724,
-	14929795,
-	12232805,
-	8654606,
-	12033114
-      ],
-      "expColorIndices": [
-	1,
-	1,
-	1,
-	2,
-	1,
-	3,
-	3,
-	4,
-	0
-      ],
-      "collColorIndices": [
-	1,
-	1,
-	1,
-	2,
-	1,
-	3,
-	3,
-	4,
-	0
-      ],
-      "smallColorIndices": [
-	1,
-	-1,
-	1,
-	2,
-	1,
-	3,
-	3,
-	4,
-	0
-      ],
       "levels": true,
+      "colorsPerLevel": 4,
       "shell": 2,
-      "version": 0,
-      "shineArray": [
-	15716780,
-	14212320,
-	16115111
-      ]
+      "bigHead": false,
+      "embargoTime": 0
     },
     {
+      "colors": [
+        16729986,
+        4410,
+        868265
+      ],
+      "lgColorIndices": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        2,
+        3,
+        0
+      ],
+      "smColorIndices": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        2,
+        3,
+        0
+      ],
+      "version": 0,
       "id": 21,
       "name": "ONE_TO_WATCH",
-      "colorArray": [
-	16729986,
-	4410,
-	868265
-      ],
-      "expColorIndices": [
-	1,
-	1,
-	1,
-	1,
-	1,
-	2,
-	2,
-	3,
-	0
-      ],
-      "collColorIndices": [
-	1,
-	1,
-	1,
-	1,
-	1,
-	2,
-	2,
-	3,
-	0
-      ],
-      "smallColorIndices": [
-	1,
-	1,
-	1,
-	1,
-	1,
-	2,
-	2,
-	3,
-	0
-      ],
       "levels": false,
       "shell": 2,
-      "version": 0,
-      "shineArray": [
-	10092539
-      ]
+      "bigHead": false,
+      "embargoTime": 0
     },
     {
+      "colors": [
+        16738573,
+        10964756,
+        1773321,
+        5779729
+      ],
+      "lgColorIndices": [
+        1,
+        1,
+        1,
+        2,
+        1,
+        3,
+        3,
+        4,
+        0
+      ],
+      "smColorIndices": [
+        1,
+        1,
+        1,
+        2,
+        1,
+        3,
+        3,
+        4,
+        0
+      ],
+      "version": 0,
       "id": 22,
       "name": "HALLOWEEN",
-      "colorArray": [
-	16738573,
-	10964756,
-	1773321,
-	5779729
-      ],
-      "expColorIndices": [
-	1,
-	1,
-	1,
-	2,
-	1,
-	3,
-	3,
-	4,
-	0
-      ],
-      "collColorIndices": [
-	1,
-	1,
-	1,
-	2,
-	1,
-	3,
-	3,
-	4,
-	0
-      ],
-      "smallColorIndices": [
-	1,
-	1,
-	1,
-	2,
-	1,
-	3,
-	3,
-	4,
-	0
-      ],
       "levels": false,
       "shell": 2,
-      "version": 0,
-      "shineArray": [
-	5779729
-      ]
+      "bigHead": false,
+      "embargoTime": 1539968400
     },
     {
+      "colors": [
+        7520511,
+        6071260,
+        9314445,
+        15290848
+      ],
+      "lgColorIndices": [
+        1,
+        1,
+        1,
+        2,
+        1,
+        3,
+        3,
+        4,
+        0
+      ],
+      "smColorIndices": [
+        1,
+        -1,
+        1,
+        2,
+        1,
+        3,
+        3,
+        4,
+        0
+      ],
+      "version": 1,
       "id": 24,
       "name": "SBC_REWARD",
-      "colorArray": [
-	7520511,
-	6071260,
-	9314445,
-	15290848
-      ],
-      "expColorIndices": [
-	1,
-	1,
-	1,
-	2,
-	1,
-	3,
-	3,
-	4,
-	0
-      ],
-      "collColorIndices": [
-	1,
-	1,
-	1,
-	2,
-	1,
-	3,
-	3,
-	4,
-	0
-      ],
-      "smallColorIndices": [
-	1,
-	-1,
-	1,
-	2,
-	1,
-	3,
-	3,
-	4,
-	0
-      ],
       "levels": false,
       "shell": 2,
-      "version": 1,
-      "shineArray": [
-	16563961
-      ]
+      "bigHead": false,
+      "embargoTime": 0
     },
     {
+      "colors": [
+        16618998,
+        14645208,
+        2585790,
+        5815290
+      ],
+      "lgColorIndices": [
+        1,
+        1,
+        1,
+        2,
+        1,
+        3,
+        3,
+        4,
+        0
+      ],
+      "smColorIndices": [
+        1,
+        1,
+        1,
+        2,
+        1,
+        3,
+        3,
+        4,
+        0
+      ],
+      "version": 1,
       "id": 25,
       "name": "SBC_PREMIUM",
-      "colorArray": [
-	16618998,
-	14645208,
-	2585790,
-	5815290
-      ],
-      "expColorIndices": [
-	1,
-	1,
-	1,
-	2,
-	1,
-	3,
-	3,
-	4,
-	0
-      ],
-      "collColorIndices": [
-	1,
-	1,
-	1,
-	2,
-	1,
-	3,
-	3,
-	4,
-	0
-      ],
-      "smallColorIndices": [
-	1,
-	1,
-	1,
-	2,
-	1,
-	3,
-	3,
-	4,
-	0
-      ],
       "levels": false,
       "shell": 2,
-      "version": 1,
-      "shineArray": [
-	16563961
-      ]
+      "bigHead": false,
+      "embargoTime": 0
     },
     {
+      "colors": [
+        12648246,
+        9816102,
+        6104504,
+        10733901
+      ],
+      "lgColorIndices": [
+        1,
+        1,
+        1,
+        2,
+        1,
+        3,
+        3,
+        4,
+        0
+      ],
+      "smColorIndices": [
+        1,
+        -1,
+        1,
+        2,
+        1,
+        3,
+        3,
+        4,
+        0
+      ],
+      "version": 0,
       "id": 28,
       "name": "AWARD_WINNER",
-      "colorArray": [
-	12648246,
-	9816102,
-	6104504,
-	10733901
-      ],
-      "expColorIndices": [
-	1,
-	1,
-	1,
-	2,
-	1,
-	3,
-	3,
-	4,
-	0
-      ],
-      "collColorIndices": [
-	1,
-	1,
-	1,
-	2,
-	1,
-	3,
-	3,
-	4,
-	0
-      ],
-      "smallColorIndices": [
-	1,
-	-1,
-	1,
-	2,
-	1,
-	3,
-	3,
-	4,
-	0
-      ],
       "levels": false,
       "shell": 2,
-      "version": 0,
-      "shineArray": [
-	10733901
-      ]
+      "bigHead": false,
+      "embargoTime": 1604707200
     },
     {
+      "version": 0,
       "id": 29,
       "name": "CUSTOM_BRICK",
+      "type": 0,
       "levels": false,
-      "version": 0,
-      "type": 0
+      "bigHead": false,
+      "embargoTime": 1604707200
     },
     {
+      "colors": [
+        16514043,
+        14737632,
+        10030865,
+        4435832
+      ],
+      "lgColorIndices": [
+        1,
+        1,
+        1,
+        2,
+        1,
+        3,
+        3,
+        4,
+        0
+      ],
+      "smColorIndices": [
+        1,
+        1,
+        1,
+        2,
+        1,
+        3,
+        3,
+        4,
+        0
+      ],
+      "version": 1,
+      "id": 32,
+      "name": "FUTMAS",
+      "levels": false,
+      "shell": 2,
+      "bigHead": false,
+      "embargoTime": 1544637600
+    },
+    {
+      "colors": [
+        16119285,
+        13418175,
+        10683921,
+        723723
+      ],
+      "lgColorIndices": [
+        1,
+        1,
+        1,
+        2,
+        1,
+        3,
+        3,
+        4,
+        0
+      ],
+      "smColorIndices": [
+        1,
+        1,
+        1,
+        2,
+        1,
+        3,
+        3,
+        4,
+        0
+      ],
+      "version": 11,
       "id": 42,
       "name": "POTM_BUNDESLIGA",
-      "colorArray": [
-	16119285,
-	13418175,
-	10683921,
-	723723
-      ],
-      "expColorIndices": [
-	1,
-	1,
-	1,
-	2,
-	1,
-	3,
-	3,
-	4,
-	0
-      ],
-      "collColorIndices": [
-	1,
-	1,
-	1,
-	2,
-	1,
-	3,
-	3,
-	4,
-	0
-      ],
-      "smallColorIndices": [
-	1,
-	1,
-	1,
-	2,
-	1,
-	3,
-	3,
-	4,
-	0
-      ],
       "levels": false,
       "shell": 2,
-      "version": 11,
-      "shineArray": [
-	16119285
-      ]
+      "bigHead": false,
+      "embargoTime": 0
     },
     {
+      "colors": [
+        389631,
+        439229,
+        3670849,
+        2480625
+      ],
+      "lgColorIndices": [
+        1,
+        1,
+        1,
+        2,
+        1,
+        3,
+        3,
+        4,
+        0
+      ],
+      "smColorIndices": [
+        1,
+        1,
+        1,
+        2,
+        1,
+        3,
+        3,
+        4,
+        0
+      ],
+      "version": 5,
       "id": 43,
       "name": "POTM_EPL",
-      "colorArray": [
-	389631,
-	439229,
-	3670849,
-	2480625
-      ],
-      "expColorIndices": [
-	1,
-	1,
-	1,
-	2,
-	1,
-	3,
-	3,
-	4,
-	0
-      ],
-      "collColorIndices": [
-	1,
-	1,
-	1,
-	2,
-	1,
-	3,
-	3,
-	4,
-	0
-      ],
-      "smallColorIndices": [
-	1,
-	1,
-	1,
-	2,
-	1,
-	3,
-	3,
-	4,
-	0
-      ],
       "levels": false,
       "shell": 2,
-      "version": 5,
-      "shineArray": [
-	11924478
-      ]
+      "bigHead": false,
+      "embargoTime": 0
     },
     {
+      "colors": [
+        789516,
+        2760464,
+        16355328,
+        16119285
+      ],
+      "lgColorIndices": [
+        1,
+        1,
+        1,
+        2,
+        1,
+        3,
+        3,
+        4,
+        0
+      ],
+      "smColorIndices": [
+        1,
+        1,
+        1,
+        2,
+        1,
+        3,
+        3,
+        4,
+        0
+      ],
+      "version": 2,
       "id": 44,
       "name": "EUROPA_SBC",
-      "colorArray": [
-	789516,
-	2760464,
-	16355328,
-	16119285
-      ],
-      "expColorIndices": [
-	1,
-	1,
-	1,
-	2,
-	1,
-	3,
-	3,
-	4,
-	0
-      ],
-      "collColorIndices": [
-	1,
-	1,
-	1,
-	2,
-	1,
-	3,
-	3,
-	4,
-	0
-      ],
-      "smallColorIndices": [
-	1,
-	1,
-	1,
-	2,
-	1,
-	3,
-	3,
-	4,
-	0
-      ],
       "levels": false,
       "shell": 2,
-      "version": 2,
-      "shineArray": [
-	16766744
-      ]
+      "bigHead": false,
+      "embargoTime": 1604707200
     },
     {
+      "colors": [
+        16119285,
+        789516,
+        2760464,
+        16355328
+      ],
+      "lgColorIndices": [
+        1,
+        2,
+        2,
+        3,
+        2,
+        2,
+        4,
+        1,
+        0
+      ],
+      "smColorIndices": [
+        1,
+        2,
+        2,
+        3,
+        2,
+        2,
+        4,
+        1,
+        0
+      ],
+      "version": 5,
       "id": 45,
       "name": "EUROPA_MOTM",
-      "colorArray": [
-	16119285,
-	789516,
-	2760464,
-	16355328
-      ],
-      "expColorIndices": [
-	1,
-	2,
-	2,
-	3,
-	2,
-	2,
-	4,
-	1,
-	0
-      ],
-      "collColorIndices": [
-	1,
-	2,
-	2,
-	3,
-	2,
-	2,
-	4,
-	1,
-	0
-      ],
-      "smallColorIndices": [
-	1,
-	2,
-	2,
-	3,
-	2,
-	2,
-	4,
-	1,
-	0
-      ],
       "levels": false,
       "shell": 1,
-      "version": 5,
-      "shineArray": [
-	16763969
-      ]
+      "bigHead": false,
+      "embargoTime": 1604707200
     },
     {
+      "colors": [
+        15962624,
+        13597696,
+        789516,
+        16119285
+      ],
+      "lgColorIndices": [
+        1,
+        1,
+        1,
+        2,
+        1,
+        3,
+        3,
+        4,
+        0
+      ],
+      "smColorIndices": [
+        1,
+        1,
+        1,
+        2,
+        1,
+        3,
+        3,
+        4,
+        0
+      ],
+      "version": 4,
       "id": 46,
       "name": "EUROPA_LIVE",
-      "colorArray": [
-	15962624,
-	13597696,
-	789516,
-	16119285
-      ],
-      "expColorIndices": [
-	1,
-	1,
-	1,
-	2,
-	1,
-	3,
-	3,
-	4,
-	0
-      ],
-      "collColorIndices": [
-	1,
-	1,
-	1,
-	2,
-	1,
-	3,
-	3,
-	4,
-	0
-      ],
-      "smallColorIndices": [
-	1,
-	1,
-	1,
-	2,
-	1,
-	3,
-	3,
-	4,
-	0
-      ],
       "levels": false,
       "shell": 2,
-      "version": 2,
-      "shineArray": [
-	16756793
-      ]
+      "bigHead": false,
+      "embargoTime": 1604707200
     },
     {
+      "colors": [
+        16119285,
+        13027810,
+        2683,
+        5961692
+      ],
+      "lgColorIndices": [
+        1,
+        1,
+        1,
+        2,
+        1,
+        3,
+        3,
+        4,
+        0
+      ],
+      "smColorIndices": [
+        1,
+        1,
+        1,
+        2,
+        1,
+        3,
+        3,
+        4,
+        0
+      ],
+      "version": 0,
       "id": 47,
       "name": "CHAMPIONS_LEAGUE_COMMON",
-      "colorArray": [
-	16119285,
-	13027810,
-	2683,
-	5961692
-      ],
-      "expColorIndices": [
-	1,
-	1,
-	1,
-	2,
-	1,
-	3,
-	3,
-	4,
-	0
-      ],
-      "collColorIndices": [
-	1,
-	1,
-	1,
-	2,
-	1,
-	3,
-	3,
-	4,
-	0
-      ],
-      "smallColorIndices": [
-	1,
-	1,
-	1,
-	2,
-	1,
-	3,
-	3,
-	4,
-	0
-      ],
       "levels": false,
       "shell": 0,
-      "version": 0,
-      "shineArray": [
-	627156
-      ]
+      "bigHead": false,
+      "embargoTime": 0
     },
     {
+      "colors": [
+        16119285,
+        13027810,
+        2683,
+        5961692
+      ],
+      "lgColorIndices": [
+        1,
+        1,
+        1,
+        2,
+        1,
+        3,
+        3,
+        4,
+        0
+      ],
+      "smColorIndices": [
+        1,
+        1,
+        1,
+        2,
+        1,
+        3,
+        3,
+        4,
+        0
+      ],
+      "version": 1,
       "id": 48,
       "name": "CHAMPIONS_LEAGUE_RARE",
-      "colorArray": [
-	16119285,
-	13027810,
-	2683,
-	5961692
-      ],
-      "expColorIndices": [
-	1,
-	1,
-	1,
-	2,
-	1,
-	3,
-	3,
-	4,
-	0
-      ],
-      "collColorIndices": [
-	1,
-	1,
-	1,
-	2,
-	1,
-	3,
-	3,
-	4,
-	0
-      ],
-      "smallColorIndices": [
-	1,
-	1,
-	1,
-	2,
-	1,
-	3,
-	3,
-	4,
-	0
-      ],
       "levels": false,
       "shell": 1,
-      "version": 1,
-      "shineArray": [
-	627156
-      ]
+      "bigHead": false,
+      "embargoTime": 0
     },
     {
+      "colors": [
+        16119285,
+        13027810,
+        397639,
+        19700
+      ],
+      "lgColorIndices": [
+        1,
+        1,
+        1,
+        2,
+        1,
+        3,
+        3,
+        4,
+        0
+      ],
+      "smColorIndices": [
+        1,
+        1,
+        1,
+        2,
+        1,
+        3,
+        3,
+        4,
+        0
+      ],
+      "version": 1,
       "id": 49,
       "name": "CHAMPIONS_LEAGUE_MOTM",
-      "colorArray": [
-	16119285,
-	13027810,
-	397639,
-	19700
-      ],
-      "expColorIndices": [
-	1,
-	1,
-	1,
-	2,
-	1,
-	3,
-	3,
-	4,
-	0
-      ],
-      "collColorIndices": [
-	1,
-	1,
-	1,
-	2,
-	1,
-	3,
-	3,
-	4,
-	0
-      ],
-      "smallColorIndices": [
-	1,
-	1,
-	1,
-	2,
-	1,
-	3,
-	3,
-	4,
-	0
-      ],
       "levels": false,
       "shell": 1,
-      "version": 1,
-      "shineArray": [
-	467891
-      ]
+      "bigHead": false,
+      "embargoTime": 1604707200
     },
     {
+      "colors": [
+        16119285,
+        13027810,
+        2632,
+        17367
+      ],
+      "lgColorIndices": [
+        1,
+        1,
+        1,
+        2,
+        1,
+        3,
+        3,
+        4,
+        0
+      ],
+      "smColorIndices": [
+        1,
+        1,
+        1,
+        2,
+        1,
+        3,
+        3,
+        4,
+        0
+      ],
+      "version": 3,
       "id": 50,
       "name": "CHAMPIONS_LEAGUE_LIVE",
-      "colorArray": [
-	16119285,
-	13027810,
-	2632,
-	17367
-      ],
-      "expColorIndices": [
-	1,
-	1,
-	1,
-	2,
-	1,
-	3,
-	3,
-	4,
-	0
-      ],
-      "collColorIndices": [
-	1,
-	1,
-	1,
-	2,
-	1,
-	3,
-	3,
-	4,
-	0
-      ],
-      "smallColorIndices": [
-	1,
-	1,
-	1,
-	2,
-	1,
-	3,
-	3,
-	4,
-	0
-      ],
       "levels": false,
       "shell": 2,
-      "version": 1,
-      "shineArray": [
-	5961692
-      ]
+      "bigHead": false,
+      "embargoTime": 1604707200
     },
     {
+      "colors": [
+        14997436,
+        11578521,
+        4481115,
+        11576459
+      ],
+      "lgColorIndices": [
+        1,
+        1,
+        1,
+        2,
+        1,
+        3,
+        3,
+        4,
+        0
+      ],
+      "smColorIndices": [
+        1,
+        1,
+        1,
+        2,
+        1,
+        3,
+        3,
+        4,
+        0
+      ],
+      "version": 0,
       "id": 51,
       "name": "FLASHBACK_SBC",
-      "colorArray": [
-	14997436,
-	11578521,
-	4481115,
-	11576459
-      ],
-      "expColorIndices": [
-	1,
-	1,
-	1,
-	2,
-	1,
-	3,
-	3,
-	4,
-	0
-      ],
-      "collColorIndices": [
-	1,
-	1,
-	1,
-	2,
-	1,
-	3,
-	3,
-	4,
-	0
-      ],
-      "smallColorIndices": [
-	1,
-	1,
-	1,
-	2,
-	1,
-	3,
-	3,
-	4,
-	0
-      ],
       "levels": false,
       "shell": 2,
-      "version": 0,
-      "shineArray": [
-	14997436
-      ]
+      "bigHead": false,
+      "embargoTime": 0
     },
     {
-      "id": 52,
-      "name": "FUT_SWAP_DEALS_1",
-      "colorArray": [
+      "colors": [
         373699,
         3289650,
         1272691
       ],
-      "expColorIndices": [
+      "lgColorIndices": [
         1,
         1,
         1,
@@ -1343,7 +1103,7 @@
         3,
         0
       ],
-      "collColorIndices": [
+      "smColorIndices": [
         1,
         1,
         1,
@@ -1354,803 +1114,634 @@
         3,
         0
       ],
-      "smallColorIndices": [
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        2,
-        3,
-        0
-      ],
+      "version": 1,
+      "id": 52,
+      "name": "FUT_SWAP_DEALS_1",
       "levels": false,
       "shell": 1,
-      "version": 1,
-      "shineArray": [
-        14547966
-      ]
+      "bigHead": false,
+      "embargoTime": 0
     },
-	{
+    {
+      "colors": [
+        45943,
+        3289650,
+        878409
+      ],
+      "lgColorIndices": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        3,
+        0
+      ],
+      "smColorIndices": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        3,
+        0
+      ],
+      "version": 4,
       "id": 53,
       "name": "FUT_SWAP_DEALS_2",
-      "colorArray": [
-	16119285,
-	42350,
-	789516,
-	1139784
-      ],
-      "expColorIndices": [
-	1,
-	2,
-	2,
-	2,
-	2,
-	3,
-	3,
-	4,
-	0
-      ],
-      "collColorIndices": [
-	1,
-	2,
-	2,
-	2,
-	2,
-	3,
-	3,
-	4,
-	0
-      ],
-      "smallColorIndices": [
-	1,
-	2,
-	2,
-	2,
-	2,
-	3,
-	3,
-	4,
-	0
-      ],
       "levels": false,
       "shell": 1,
-      "version": 0,
-      "shineArray": [
-	13827823
-      ]
+      "bigHead": false,
+      "embargoTime": 1541178000
     },
-	{
+    {
+      "colors": [
+        8897862,
+        3289650,
+        5337136
+      ],
+      "lgColorIndices": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        3,
+        0
+      ],
+      "smColorIndices": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        3,
+        0
+      ],
+      "version": 2,
       "id": 54,
       "name": "FUT_SWAP_DEALS_3",
-      "colorArray": [
-	16119285,
-	8897862,
-	789516,
-	5666102
-      ],
-      "expColorIndices": [
-	1,
-	2,
-	2,
-	2,
-	2,
-	3,
-	3,
-	4,
-	0
-      ],
-      "collColorIndices": [
-	1,
-	2,
-	2,
-	2,
-	2,
-	3,
-	3,
-	4,
-	0
-      ],
-      "smallColorIndices": [
-	1,
-	2,
-	2,
-	2,
-	2,
-	3,
-	3,
-	4,
-	0
-      ],
       "levels": false,
       "shell": 1,
-      "version": 0,
-      "shineArray": [
-	15334613
-      ]
+      "bigHead": false,
+      "embargoTime": 1604707200
     },
-	{
+    {
+      "colors": [
+        12109861,
+        3289650,
+        7107618
+      ],
+      "lgColorIndices": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        3,
+        0
+      ],
+      "smColorIndices": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        3,
+        0
+      ],
+      "version": 1,
       "id": 55,
       "name": "FUT_SWAP_DEALS_4",
-      "colorArray": [
-	16119285,
-	12109861,
-	789516,
-	7107618
-      ],
-      "expColorIndices": [
-	1,
-	2,
-	2,
-	2,
-	2,
-	3,
-	3,
-	4,
-	0
-      ],
-      "collColorIndices": [
-	1,
-	2,
-	2,
-	2,
-	2,
-	3,
-	3,
-	4,
-	0
-      ],
-      "smallColorIndices": [
-	1,
-	2,
-	2,
-	2,
-	2,
-	3,
-	3,
-	4,
-	0
-      ],
       "levels": false,
       "shell": 1,
-      "version": 0,
-      "shineArray": [
-	16383936
-      ]
+      "bigHead": false,
+      "embargoTime": 1604707200
     },
-	{
+    {
+      "colors": [
+        16119285,
+        16040236,
+        789516,
+        9072934
+      ],
+      "lgColorIndices": [
+        1,
+        2,
+        2,
+        2,
+        2,
+        3,
+        3,
+        4,
+        0
+      ],
+      "smColorIndices": [
+        1,
+        2,
+        2,
+        2,
+        2,
+        3,
+        3,
+        4,
+        0
+      ],
+      "version": 0,
       "id": 56,
       "name": "FUT_SWAP_DEALS_5",
-      "colorArray": [
-	16119285,
-	16040236,
-	789516,
-	9072934
-      ],
-      "expColorIndices": [
-	1,
-	2,
-	2,
-	2,
-	2,
-	3,
-	3,
-	4,
-	0
-      ],
-      "collColorIndices": [
-	1,
-	2,
-	2,
-	2,
-	2,
-	3,
-	3,
-	4,
-	0
-      ],
-      "smallColorIndices": [
-	1,
-	2,
-	2,
-	2,
-	2,
-	3,
-	3,
-	4,
-	0
-      ],
       "levels": false,
       "shell": 1,
-      "version": 0,
-      "shineArray": [
-	16772796
-      ]
+      "bigHead": false,
+      "embargoTime": 1604707200
     },
-	{
+    {
+      "colors": [
+        16119285,
+        15891754,
+        789516,
+        9195816
+      ],
+      "lgColorIndices": [
+        1,
+        2,
+        2,
+        2,
+        2,
+        3,
+        3,
+        4,
+        0
+      ],
+      "smColorIndices": [
+        1,
+        2,
+        2,
+        2,
+        2,
+        3,
+        3,
+        4,
+        0
+      ],
+      "version": 0,
       "id": 57,
       "name": "FUT_SWAP_DEALS_6",
-      "colorArray": [
-	16119285,
-	15891754,
-	789516,
-	9195816
-      ],
-      "expColorIndices": [
-	1,
-	2,
-	2,
-	2,
-	2,
-	3,
-	3,
-	4,
-	0
-      ],
-      "collColorIndices": [
-	1,
-	2,
-	2,
-	2,
-	2,
-	3,
-	3,
-	4,
-	0
-      ],
-      "smallColorIndices": [
-	1,
-	2,
-	2,
-	2,
-	2,
-	3,
-	3,
-	4,
-	0
-      ],
       "levels": false,
       "shell": 1,
-      "version": 0,
-      "shineArray": [
-	16769996
-      ]
+      "bigHead": false,
+      "embargoTime": 1604707200
     },
-	{
+    {
+      "colors": [
+        16119285,
+        15878954,
+        789516,
+        9123879
+      ],
+      "lgColorIndices": [
+        1,
+        2,
+        2,
+        2,
+        2,
+        3,
+        3,
+        4,
+        0
+      ],
+      "smColorIndices": [
+        1,
+        2,
+        2,
+        2,
+        2,
+        3,
+        3,
+        4,
+        0
+      ],
+      "version": 0,
       "id": 58,
       "name": "FUT_SWAP_DEALS_7",
-      "colorArray": [
-	16119285,
-	15878954,
-	789516,
-	9123879
-      ],
-      "expColorIndices": [
-	1,
-	2,
-	2,
-	2,
-	2,
-	3,
-	3,
-	4,
-	0
-      ],
-      "collColorIndices": [
-	1,
-	2,
-	2,
-	2,
-	2,
-	3,
-	3,
-	4,
-	0
-      ],
-      "smallColorIndices": [
-	1,
-	2,
-	2,
-	2,
-	2,
-	3,
-	3,
-	4,
-	0
-      ],
       "levels": false,
       "shell": 1,
-      "version": 0,
-      "shineArray": [
-	16763065
-      ]
+      "bigHead": false,
+      "embargoTime": 1604793600
     },
-	{
+    {
+      "colors": [
+        16119285,
+        16197929,
+        789516,
+        9316135
+      ],
+      "lgColorIndices": [
+        1,
+        2,
+        2,
+        2,
+        2,
+        3,
+        3,
+        4,
+        0
+      ],
+      "smColorIndices": [
+        1,
+        2,
+        2,
+        2,
+        2,
+        3,
+        3,
+        4,
+        0
+      ],
+      "version": 0,
       "id": 59,
       "name": "FUT_SWAP_DEALS_8",
-      "colorArray": [
-	16119285,
-	16197929,
-	789516,
-	9316135
-      ],
-      "expColorIndices": [
-	1,
-	2,
-	2,
-	2,
-	2,
-	3,
-	3,
-	4,
-	0
-      ],
-      "collColorIndices": [
-	1,
-	2,
-	2,
-	2,
-	2,
-	3,
-	3,
-	4,
-	0
-      ],
-      "smallColorIndices": [
-	1,
-	2,
-	2,
-	2,
-	2,
-	3,
-	3,
-	4,
-	0
-      ],
       "levels": false,
       "shell": 1,
-      "version": 0,
-      "shineArray": [
-	16758454
-      ]
+      "bigHead": false,
+      "embargoTime": 1604707200
     },
-	{
+    {
+      "colors": [
+        16119285,
+        16071008,
+        789516,
+        9055296
+      ],
+      "lgColorIndices": [
+        1,
+        2,
+        2,
+        2,
+        2,
+        3,
+        3,
+        4,
+        0
+      ],
+      "smColorIndices": [
+        1,
+        2,
+        2,
+        2,
+        2,
+        3,
+        3,
+        4,
+        0
+      ],
+      "version": 0,
       "id": 60,
       "name": "FUT_SWAP_DEALS_9",
-      "colorArray": [
-	16119285,
-	16071008,
-	789516,
-	9055296
-      ],
-      "expColorIndices": [
-	1,
-	2,
-	2,
-	2,
-	2,
-	3,
-	3,
-	4,
-	0
-      ],
-      "collColorIndices": [
-	1,
-	2,
-	2,
-	2,
-	2,
-	3,
-	3,
-	4,
-	0
-      ],
-      "smallColorIndices": [
-	1,
-	2,
-	2,
-	2,
-	2,
-	3,
-	3,
-	4,
-	0
-      ],
       "levels": false,
       "shell": 1,
-      "version": 0,
-      "shineArray": [
-	16755644
-      ]
+      "bigHead": false,
+      "embargoTime": 1604707200
     },
-	{
+    {
+      "colors": [
+        16119285,
+        13581965,
+        789516,
+        7942232
+      ],
+      "lgColorIndices": [
+        1,
+        2,
+        2,
+        2,
+        2,
+        3,
+        3,
+        4,
+        0
+      ],
+      "smColorIndices": [
+        1,
+        2,
+        2,
+        2,
+        2,
+        3,
+        3,
+        4,
+        0
+      ],
+      "version": 0,
       "id": 61,
       "name": "FUT_SWAP_DEALS_10",
-      "colorArray": [
-	16119285,
-	13581965,
-	789516,
-	7942232
-      ],
-      "expColorIndices": [
-	1,
-	2,
-	2,
-	2,
-	2,
-	3,
-	3,
-	4,
-	0
-      ],
-      "collColorIndices": [
-	1,
-	2,
-	2,
-	2,
-	2,
-	3,
-	3,
-	4,
-	0
-      ],
-      "smallColorIndices": [
-	1,
-	2,
-	2,
-	2,
-	2,
-	3,
-	3,
-	4,
-	0
-      ],
       "levels": false,
       "shell": 1,
-      "version": 0,
-      "shineArray": [
-	16755929
-      ]
+      "bigHead": false,
+      "embargoTime": 1604707200
     },
-	{
+    {
+      "colors": [
+        16119285,
+        8933051,
+        789516,
+        5716593
+      ],
+      "lgColorIndices": [
+        1,
+        2,
+        2,
+        2,
+        2,
+        3,
+        3,
+        4,
+        0
+      ],
+      "smColorIndices": [
+        1,
+        2,
+        2,
+        2,
+        2,
+        3,
+        3,
+        4,
+        0
+      ],
+      "version": 0,
       "id": 62,
       "name": "FUT_SWAP_DEALS_11",
-      "colorArray": [
-	16119285,
-	8933051,
-	789516,
-	5716593
-      ],
-      "expColorIndices": [
-	1,
-	2,
-	2,
-	2,
-	2,
-	3,
-	3,
-	4,
-	0
-      ],
-      "collColorIndices": [
-	1,
-	2,
-	2,
-	2,
-	2,
-	3,
-	3,
-	4,
-	0
-      ],
-      "smallColorIndices": [
-	1,
-	2,
-	2,
-	2,
-	2,
-	3,
-	3,
-	4,
-	0
-      ],
       "levels": false,
       "shell": 1,
-      "version": 0,
-      "shineArray": [
-	14860799
-      ]
+      "bigHead": false,
+      "embargoTime": 1604707200
     },
-	{
+    {
+      "colors": [
+        16119285,
+        789516,
+        9830619
+      ],
+      "lgColorIndices": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        2,
+        3,
+        0
+      ],
+      "smColorIndices": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        2,
+        3,
+        0
+      ],
+      "version": 0,
       "id": 63,
       "name": "FUT_SWAP_DEALS_REWARDS",
-      "colorArray": [
-	16119285,
-	789516,
-	9830619
-      ],
-      "expColorIndices": [
-	1,
-	1,
-	1,
-	1,
-	1,
-	2,
-	2,
-	3,
-	0
-      ],
-      "collColorIndices": [
-	1,
-	1,
-	1,
-	1,
-	1,
-	2,
-	2,
-	3,
-	0
-      ],
-      "smallColorIndices": [
-	1,
-	1,
-	1,
-	1,
-	1,
-	2,
-	2,
-	3,
-	0
-      ],
       "levels": false,
       "shell": 2,
-      "version": 0,
-      "shineArray": [
-	16774012
-      ]
+      "bigHead": false,
+      "embargoTime": 0
     },
     {
-      "id": 68,
-      "name": "EUROPA_TOTT",
-      "colorArray": [
-	16119285,
-	14013909,
-	789516,
-	15962624
+      "colors": [
+        15717992,
+        2396,
+        11571003
       ],
-      "expColorIndices": [
-	1,
-	1,
-	1,
-	2,
-	1,
-	3,
-	3,
-	4,
-	0
+      "lgColorIndices": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        3,
+        0
       ],
-      "collColorIndices": [
-	1,
-	1,
-	1,
-	2,
-	1,
-	3,
-	3,
-	4,
-	0
+      "smColorIndices": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        3,
+        0
       ],
-      "smallColorIndices": [
-	1,
-	1,
-	1,
-	2,
-	1,
-	3,
-	3,
-	4,
-	0
-      ],
-      "levels": false,
-      "shell": 2,
-      "version": 0,
-      "shineArray": [
-	16756793
-      ]
-    },
-    {
-      "id": 69,
-      "name": "CHAMPIONS_LEAGUE_SBC",
-      "colorArray": [
-	16119285,
-	13027810,
-	10361780,
-	5961692
-      ],
-      "expColorIndices": [
-	1,
-	1,
-	1,
-	2,
-	1,
-	3,
-	3,
-	4,
-	0
-      ],
-      "collColorIndices": [
-	1,
-	1,
-	1,
-	2,
-	1,
-	3,
-	3,
-	4,
-	0
-      ],
-      "smallColorIndices": [
-	1,
-	1,
-	1,
-	2,
-	1,
-	3,
-	3,
-	4,
-	0
-      ],
-      "levels": false,
-      "shell": 2,
       "version": 1,
-      "shineArray": [
-	5961692
-      ]
-    },
-    {
-      "id": 70,
-      "name": "CHAMPIONS_LEAGUE_TOTT",
-      "colorArray": [
-	16119285,
-	13027810,
-	2683,
-	19700
-      ],
-      "expColorIndices": [
-	1,
-	1,
-	1,
-	2,
-	1,
-	3,
-	3,
-	4,
-	0
-      ],
-      "collColorIndices": [
-	1,
-	1,
-	1,
-	2,
-	1,
-	3,
-	3,
-	4,
-	0
-      ],
-      "smallColorIndices": [
-	1,
-	1,
-	1,
-	2,
-	1,
-	3,
-	3,
-	4,
-	0
-      ],
-      "levels": false,
-      "shell": 2,
-      "version": 1,
-      "shineArray": [
-	5961692
-      ]
-    },
-    {
-      "id": 78,
-      "name": "EUROPA_BASE",
-      "colorArray": [
-	15962624,
-	1447446,
-	6447714
-      ],
-      "expColorIndices": [
-	1,
-	1,
-	1,
-	1,
-	1,
-	2,
-	2,
-	3,
-	0
-      ],
-      "collColorIndices": [
-	1,
-	1,
-	1,
-	1,
-	1,
-	2,
-	2,
-	3,
-	0
-      ],
-      "smallColorIndices": [
-	1,
-	1,
-	1,
-	1,
-	1,
-	2,
-	2,
-	3,
-	0
-      ],
+      "id": 64,
+      "name": "TOTY NOMINEES",
       "levels": false,
       "shell": 1,
-      "version": 0,
-      "shineArray": [
-	12961221
-      ]
+      "bigHead": false,
+      "embargoTime": 1546884000
     },
     {
-      "id": 999,
-      "name": "DEFAULT",
-      "colorArray": [
-	15132390,
-	3815994
+      "colors": [
+        16119285,
+        14013909,
+        789516,
+        15962624
       ],
-      "expColorIndices": [
-	1,
-	1,
-	1,
-	1,
-	1,
-	1,
-	2,
-	1,
-	0
+      "lgColorIndices": [
+        1,
+        1,
+        1,
+        2,
+        1,
+        3,
+        3,
+        4,
+        0
       ],
-      "collColorIndices": [
-	1,
-	1,
-	1,
-	1,
-	1,
-	1,
-	2,
-	1,
-	0
+      "smColorIndices": [
+        1,
+        1,
+        1,
+        2,
+        1,
+        3,
+        3,
+        4,
+        0
       ],
-      "smallColorIndices": [
-	1,
-	1,
-	1,
-	1,
-	1,
-	1,
-	2,
-	1,
-	0
-      ],
+      "version": 0,
+      "id": 68,
+      "name": "EUROPA_TOTT",
       "levels": false,
       "shell": 2,
+      "bigHead": false,
+      "embargoTime": 1604707200
+    },
+    {
+      "colors": [
+        16119285,
+        13027810,
+        10361780,
+        5961692
+      ],
+      "lgColorIndices": [
+        1,
+        1,
+        1,
+        2,
+        1,
+        3,
+        3,
+        4,
+        0
+      ],
+      "smColorIndices": [
+        1,
+        1,
+        1,
+        2,
+        1,
+        3,
+        3,
+        4,
+        0
+      ],
+      "version": 1,
+      "id": 69,
+      "name": "CHAMPIONS_LEAGUE_SBC",
+      "levels": false,
+      "shell": 2,
+      "bigHead": false,
+      "embargoTime": 1604707200
+    },
+    {
+      "colors": [
+        16119285,
+        13027810,
+        2683,
+        19700
+      ],
+      "lgColorIndices": [
+        1,
+        1,
+        1,
+        2,
+        1,
+        3,
+        3,
+        4,
+        0
+      ],
+      "smColorIndices": [
+        1,
+        1,
+        1,
+        2,
+        1,
+        3,
+        3,
+        4,
+        0
+      ],
+      "version": 1,
+      "id": 70,
+      "name": "CHAMPIONS_LEAGUE_TOTT",
+      "levels": false,
+      "shell": 2,
+      "bigHead": false,
+      "embargoTime": 1604707200
+    },
+    {
+      "colors": [
+        15962624,
+        1447446,
+        6447714
+      ],
+      "lgColorIndices": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        2,
+        3,
+        0
+      ],
+      "smColorIndices": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        2,
+        3,
+        0
+      ],
       "version": 0,
-      "shineArray": [
-	15132390
-      ]
+      "id": 78,
+      "name": "EUROPA_BASE",
+      "levels": false,
+      "shell": 1,
+      "bigHead": false,
+      "embargoTime": 0
+    },
+    {
+      "colors": [
+        15132390,
+        3815994
+      ],
+      "lgColorIndices": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        1,
+        0
+      ],
+      "smColorIndices": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        1,
+        0
+      ],
+      "version": 0,
+      "id": 999,
+      "name": "DEFAULT",
+      "levels": false,
+      "shell": 2,
+      "bigHead": false,
+      "embargoTime": 1604707200
     }
   ]
 }

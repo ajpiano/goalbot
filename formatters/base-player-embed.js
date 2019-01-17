@@ -1,5 +1,6 @@
 const { RichEmbed } = require('discord.js');
 const _ = require("lodash");
+const moment = require("moment");
 const flag = require('emoji-flag');
 const countries = require('country-list/data');
 
@@ -32,7 +33,9 @@ function formatBasePlayerEmbed(player, prices) {
   }
   let keyStats = `**WR**: ${player.atkWorkRate.substr(0,1)}/${player.defWorkRate.substr(0,1)} **SM**: ${player.skillMoves}★ **WF**:${player.weakFoot}★`;
   let phyStats = `👣 ${player.foot.substr(0,1)} 📏 ${formatHeight(player.height)} ⚖️ ${formatWeight(player.weight)}`;
-  embed.setDescription(`${attrsString}\n${keyStats}\n${phyStats}`);
+  let birthdate = moment(player.birthdate, "MM/DD/YYYY");
+  let ageStats = `🎂 ${birthdate.format("LL")} (${moment().diff(birthdate, "years")} years old)`;
+  embed.setDescription(`${attrsString}\n${keyStats}\n${phyStats}\n${ageStats}`);
   embed.addField("Nation", player.nation.abbrName, true);
   embed.addField("Club", `${player.club.name} (${player.league.abbrName})`, true);
   embed.setFooter(`goalbot v${version} | prices from FUTBIN | made w ❤️💡💪 by ajpiano`, "https://static-cdn.jtvnw.net/badges/v1/cce0dfdc-5160-4c9c-9c4b-b02dc4a684b2/1");

@@ -1674,6 +1674,42 @@
     },
     {
       "colors": [
+        12648246,
+        1575459,
+        13041485
+      ],
+      "lgColorIndices": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        3,
+        0
+      ],
+      "smColorIndices": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        3,
+        0
+      ],
+      "version": 1,
+      "id": 71,
+      "name": "FUT_FUTURE_STARS",
+      "levels": false,
+      "shell": 2,
+      "bigHead": false,
+      "embargoTime": 1547834400
+    },
+    {
+      "colors": [
         15962624,
         1447446,
         6447714
@@ -1707,6 +1743,42 @@
       "shell": 1,
       "bigHead": false,
       "embargoTime": 0
+    },
+    {
+      "colors": [
+        12648246,
+        1575459,
+        13041485
+      ],
+      "lgColorIndices": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        3,
+        0
+      ],
+      "smColorIndices": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        3,
+        0
+      ],
+      "version": 1,
+      "id": 83,
+      "name": "FUT_FUTURE_STARS_NOMINEES",
+      "levels": false,
+      "shell": 1,
+      "bigHead": false,
+      "embargoTime": 1547834400
     },
     {
       "colors": [

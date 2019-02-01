@@ -1232,40 +1232,39 @@
     },
     {
       "colors": [
-        16119285,
         16040236,
-        789516,
+        3289650,
         9072934
       ],
       "lgColorIndices": [
         1,
-        2,
-        2,
-        2,
+        1,
+        1,
+        1,
+        1,
+        1,
         2,
         3,
-        3,
-        4,
         0
       ],
       "smColorIndices": [
         1,
-        2,
-        2,
-        2,
+        1,
+        1,
+        1,
+        1,
+        1,
         2,
         3,
-        3,
-        4,
         0
       ],
-      "version": 0,
+      "version": 1,
       "id": 56,
       "name": "FUT_SWAP_DEALS_5",
       "levels": false,
       "shell": 1,
       "bigHead": false,
-      "embargoTime": 1604707200
+      "embargoTime": 1549044000
     },
     {
       "colors": [
@@ -1779,6 +1778,42 @@
       "shell": 1,
       "bigHead": false,
       "embargoTime": 1547834400
+    },
+    {
+      "colors": [
+        16777215,
+        12784444,
+        5898629
+      ],
+      "lgColorIndices": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        3,
+        1
+      ],
+      "smColorIndices": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        3,
+        1
+      ],
+      "version": 1,
+      "id": 85,
+      "name": "FUT_19_HEADLINERS",
+      "levels": false,
+      "shell": 2,
+      "bigHead": false,
+      "embargoTime": 1549044000
     },
     {
       "colors": [

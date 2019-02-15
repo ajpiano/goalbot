@@ -1781,6 +1781,43 @@
     },
     {
       "colors": [
+        6443543,
+        16777215,
+        14934750,
+        11181679
+      ],
+      "lgColorIndices": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        3,
+        4,
+        1
+      ],
+      "smColorIndices": [
+        1,
+        -1,
+        1,
+        1,
+        1,
+        2,
+        3,
+        4,
+        1
+      ],
+      "version": 1,
+      "id": 84,
+      "name": "PRIME_ICON_MOMENTS",
+      "levels": false,
+      "shell": 2,
+      "bigHead": false,
+      "embargoTime": 1550253600
+    },
+    {
+      "colors": [
         16777215,
         12784444,
         5898629

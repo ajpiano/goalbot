@@ -5,21 +5,23 @@ const countries = require('country-list/data');
 
 const rarities = require('../lib/futitemraritytunables').rarities;
 const { formatShortName } = require("./string");
+const webappLocalization = require('../lib/webapp-localization');
 
 countries.push({code: 'NL', name: 'Holland'});
 
 function formatRefinePlayerList(players) {
   var table = AsciiTable.factory({
-    heading: [ 'Choice', 'Name', 'OVR', 'Version'],
+    heading: [ 'Choice', 'Name', 'OVR', 'CLB', 'Version'],
     rows: players.map((player, i) => {
       let nationInfo = _.find(countries, {name: player.nation.name});
       let flagEmoji = "";
       let cardTypeInfo = _.find(rarities, {id: player.rarityId});
       let cardTypeName = "";
+      let clubAbbr = webappLocalization[`global.teamabbr3.2019.team${player.club.id}`] || player.club.abbrName;
       if (cardTypeInfo) {
-        cardTypeName = _.startCase(_.camelCase(`${cardTypeInfo.name} ${player.quality}`));
+        cardTypeName = _.startCase(_.camelCase(`${cardTypeInfo.name} ${player.quality}`)).replace("Champions League", "UCL");
       }
-      return [i+1, formatShortName(player), player.rating, cardTypeName];
+      return [i+1, formatShortName(player), player.rating, clubAbbr, cardTypeName];
     })
   });
   return table.toString();

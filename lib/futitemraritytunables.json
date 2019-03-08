@@ -1268,40 +1268,39 @@
     },
     {
       "colors": [
-        16119285,
         15891754,
-        789516,
+        3289650,
         9195816
       ],
       "lgColorIndices": [
         1,
-        2,
-        2,
-        2,
+        1,
+        1,
+        1,
+        1,
+        1,
         2,
         3,
-        3,
-        4,
         0
       ],
       "smColorIndices": [
         1,
-        2,
-        2,
-        2,
+        1,
+        1,
+        1,
+        1,
+        1,
         2,
         3,
-        3,
-        4,
         0
       ],
-      "version": 0,
+      "version": 3,
       "id": 57,
       "name": "FUT_SWAP_DEALS_6",
       "levels": false,
       "shell": 1,
       "bigHead": false,
-      "embargoTime": 1604707200
+      "embargoTime": 1551463200
     },
     {
       "colors": [
@@ -1706,6 +1705,42 @@
       "shell": 2,
       "bigHead": false,
       "embargoTime": 1547834400
+    },
+    {
+      "colors": [
+        16770610,
+        14222430,
+        1723750
+      ],
+      "lgColorIndices": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        3,
+        0
+      ],
+      "smColorIndices": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        3,
+        0
+      ],
+      "version": 1,
+      "id": 72,
+      "name": "CARNIBALL",
+      "levels": false,
+      "shell": 2,
+      "bigHead": false,
+      "embargoTime": 1552068000
     },
     {
       "colors": [

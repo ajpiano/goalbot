@@ -2,8 +2,10 @@ const rp = require("request-promise");
 const _ = require("lodash");
 
 module.exports = async function getFutbinPrices(players) {
-  let ids = players.length ? _.map(players,"id").join(",") : players.id;
-  let reqUrl = `https://www.futbin.com/19/playerPrices?player=&all_versions=${ids}`;
+  let ids = (players.length ? _.map(players,"id").join(",") : players.id).split(",");
+  let firstId = ids[0];
+  let remainingIds = ids.slice(1);
+  let reqUrl = `https://www.futbin.com/19/playerPrices?player=${firstId}=&rids=${remainingIds}&_=${+new Date}`;
   return rp(reqUrl).then(function(resp) {
     let playerPrices = JSON.parse(resp);
     playerPrices = _.reduce(playerPrices,(obj, p, id) => {

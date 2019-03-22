@@ -681,6 +681,42 @@
     },
     {
       "colors": [
+        1244358,
+        12648530,
+        16721794
+      ],
+      "lgColorIndices": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        3,
+        0
+      ],
+      "smColorIndices": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        3,
+        0
+      ],
+      "version": 1,
+      "id": 30,
+      "name": "FUT BIRTHDAY",
+      "levels": false,
+      "shell": 2,
+      "bigHead": false,
+      "embargoTime": 1553277600
+    },
+    {
+      "colors": [
         16514043,
         14737632,
         10030865,

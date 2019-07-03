@@ -442,6 +442,43 @@
     },
     {
       "colors": [
+        15713652,
+        12065651,
+        11476841,
+        12031834
+      ],
+      "lgColorIndices": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        3,
+        4,
+        0
+      ],
+      "smColorIndices": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        3,
+        4,
+        0
+      ],
+      "version": 1,
+      "id": 16,
+      "name": "FUTTIES WINNERS",
+      "levels": false,
+      "shell": 2,
+      "bigHead": false,
+      "embargoTime": 1562173200
+    },
+    {
+      "colors": [
         15322228,
         11639640,
         986376,
@@ -1449,34 +1486,33 @@
     },
     {
       "colors": [
-        16119285,
         16071008,
-        789516,
+        3289650,
         9055296
       ],
       "lgColorIndices": [
         1,
-        2,
-        2,
-        2,
+        1,
+        1,
+        1,
+        1,
+        1,
         2,
         3,
-        3,
-        4,
         0
       ],
       "smColorIndices": [
         1,
-        2,
-        2,
-        2,
+        1,
+        1,
+        1,
+        1,
+        1,
         2,
         3,
-        3,
-        4,
         0
       ],
-      "version": 0,
+      "version": 1,
       "id": 60,
       "name": "FUT_SWAP_DEALS_9",
       "levels": false,

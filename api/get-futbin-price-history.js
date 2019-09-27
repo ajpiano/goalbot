@@ -4,22 +4,22 @@ const _ = require("lodash");
 
 async function getFutbinPriceHistory(player, currentPrices) {
 	let params = {
-		"year": 19,
+		"year": 20,
 		"type": "today",
-		"player": player.id,
+		"player": player.playerResource,
 		"_": +new Date()
 	};
 
-	let todaySeries = await rp(`https://www.futbin.com/19/playerGraph?${querystring.stringify(params)}`).then(JSON.parse);
+	let todaySeries = await rp(`https://www.futbin.com/20/playerGraph?${querystring.stringify(params)}`).then(JSON.parse);
 
 	params.type = "yesterday";
-	let yesterdaySeries = await rp(`https://www.futbin.com/19/playerGraph?${querystring.stringify(params)}`).then(JSON.parse);
+	let yesterdaySeries = await rp(`https://www.futbin.com/20/playerGraph?${querystring.stringify(params)}`).then(JSON.parse);
 
 	params.type = "da_yesterday";
-	let yPlusOneSeries = await rp(`https://www.futbin.com/19/playerGraph?${querystring.stringify(params)}`).then(JSON.parse);
+	let yPlusOneSeries = await rp(`https://www.futbin.com/20/playerGraph?${querystring.stringify(params)}`).then(JSON.parse);
 
 	params.type="daily_graph";
-	let dailySeries = await rp(`https://www.futbin.com/19/playerGraph?${querystring.stringify(params)}`).then(JSON.parse);
+	let dailySeries = await rp(`https://www.futbin.com/20/playerGraph?${querystring.stringify(params)}`).then(JSON.parse);
 
 	let hourlySeries = {
 		xbox: _.concat(yPlusOneSeries.xbox, yesterdaySeries.xbox, todaySeries.xbox),

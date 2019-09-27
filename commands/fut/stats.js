@@ -105,19 +105,16 @@ const attrLookup = {
   
 };
 
-const outfieldAttrs = [ 
-  // { name: 'fut.attribute.PAC', value: "N/A", chemistryBonus: [ 0 ] },
-  { name: 'fut.attribute.SHO', value: "N/A", chemistryBonus: [ 0 ] },
-  { name: 'fut.attribute.PAS', value: "N/A", chemistryBonus: [ 0 ] },
-  { name: 'fut.attribute.DRI', value: "N/A", chemistryBonus: [ 0 ] },
-  { name: 'fut.attribute.DEF', value: "N/A", chemistryBonus: [ 0 ] },
-  { name: 'fut.attribute.PHY', value: "N/A", chemistryBonus: [ 0 ] }
-];
-
 function formatSubAttributes(attrKey, player) {
-  return _.map(attrLookup[attrKey].attributes, (displayName, keyName) => {
-    return `${displayName}: ${player[keyName]}`;
-  }).join("\n");
+  const seenAttrs = {};
+  const subAttrs = _.reduce(player.stats[attrKey], (c, attrObj, index) => {
+    if (!seenAttrs[attrObj.id]) {
+      c.push(`${attrObj.name}: ${attrObj.value}`);
+      seenAttrs[attrObj.id] = true;
+    }
+    return c;
+  }, []);
+  return subAttrs.join("\n");
 }
 
 function formatTraits(player) {
@@ -134,36 +131,27 @@ function formatSpecialities(player) {
   return _.map(player.specialities, _.identity).join("\n");
 }
 
-function calculateStatTotals(player, attrValues) {
-  return _.reduce(attrValues, (total, value, attrKey) => {
-    total.face += value;
-    total.ingame += _.reduce(attrLookup[attrKey].attributes, (igTotal, displayName, keyName) => {
-      igTotal += player[keyName];
+function calculateStatTotals(player) {
+  return _.reduce(player.stats, (total, values, category) => {
+    total.face += player.faceStats[category];
+    total.ingame += _.reduce(values, (igTotal, attrObj, index) => {
+      igTotal += attrObj.value;
       return igTotal;
-    }, 0);
+    },0);
     return total;
   },{ face: 0, ingame: 0 });
 }
  
 function formatPlayerInfoEmbed(player) {
   let embed = generateBasePlayerEmbed(player, player.prices);
-  if (player.position === "GK") {
-    player.attributes = player.attributes.concat(outfieldAttrs);
-  }
-  let attrValues = player.attributes.reduce((table, attr,i) => {
-    table[attr.name.split(".")[2]] = attr.value;
-    return table;
-  },{});
-  let totals = calculateStatTotals(player, attrValues);
-  //embed.addField("XBOX", `BIN: ${player.prices.xbox.LCPrice}`, true);
-  //embed.addField("PS", `BIN: ${player.prices.ps.LCPrice}`, true);
+  let totals = calculateStatTotals(player);
   embed.addField("Total Face Stats", totals.face, true);
   embed.addField("Total In-Game Stats", totals.ingame,  true);
-  _.forEach(attrValues, (value,attrKey) => {
-    embed.addField(`${attrLookup[attrKey].name}: ${value}`, formatSubAttributes(attrKey, player), true);
+  _.forEach(player.faceStats, (value, attrKey) => {
+    embed.addField(`${_.capitalize(attrKey.replace(/^gk/g,""))}: ${value}`, formatSubAttributes(attrKey, player), true);
   });
   embed.addField("Traits", formatTraits(player));
-  embed.addField("Specialities", formatSpecialities(player));
+  //embed.addField("Specialities", formatSpecialities(player));
   return embed;
 }
 
@@ -174,7 +162,7 @@ module.exports = class ReplyCommand extends Command {
       aliases: ['s'],
       group: 'fut',
       memberName: 'stats',
-      description: 'Looks up detailed player card statistics from EA FUT DB',
+      description: 'Looks up detailed player card statistics from FUTBIN',
       examples: ['stats mertens', 'stats mertens 87', 's mertens', 's mertens 87'],
       args: playerSearchArguments
     });

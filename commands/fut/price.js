@@ -18,7 +18,7 @@ module.exports = class ReplyCommand extends Command {
       aliases: ['player', 'players', 'p'],
       group: 'fut',
       memberName: 'price',
-      description: 'Looks up basic player info from EA FUT DB + latest PS & XBOX Market price from FUTBIN',
+      description: 'Looks up basic player info and latest PS & XBOX Market price from FUTBIN',
       examples: ['price mertens', 'price mertens 87', 'price "dries mertens"', 'price "dries mertens" 87'],
       args: playerSearchArguments
     });

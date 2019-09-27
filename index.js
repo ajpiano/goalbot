@@ -15,7 +15,7 @@ client
 .on('debug', console.log)
 .on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
-  client.user.setPresence({ game: { name: 'FIFA 19, badly' }, status: 'playing' })
+  client.user.setPresence({ game: { name: 'the big FIFA 20 in the sky' }, status: 'playing' })
 })
 .on('disconnect', () => { console.warn('Disconnected!'); })
 .on('reconnecting', () => { console.warn('Reconnecting...'); })

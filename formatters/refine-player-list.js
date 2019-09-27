@@ -3,7 +3,7 @@ const AsciiTable = require("ascii-table");
 const flag = require('emoji-flag');
 const countries = require('country-list/data');
 
-const rarities = require('../lib/futitemraritytunables').rarities;
+const rarities = require('../lib/rarities');
 const { formatShortName } = require("./string");
 const webappLocalization = require('../lib/webapp-localization');
 
@@ -11,17 +11,19 @@ countries.push({code: 'NL', name: 'Holland'});
 
 function formatRefinePlayerList(players) {
   var table = AsciiTable.factory({
-    heading: [ 'Choice', 'Name', 'OVR', 'CLB', 'Version'],
+    heading: [ 'Choice', 'Name', 'OVR',
+    // 'CLB',
+    'Version'],
     rows: players.map((player, i) => {
-      let nationInfo = _.find(countries, {name: player.nation.name});
-      let flagEmoji = "";
-      let cardTypeInfo = _.find(rarities, {id: player.rarityId});
+      let cardTypeInfo = _.find(rarities, {id: player.rare_type});
       let cardTypeName = "";
-      let clubAbbr = webappLocalization[`global.teamabbr3.2019.team${player.club.id}`] || player.club.abbrName;
+      //let clubAbbr = webappLocalization[`global.teamabbr3.2020.team${player.club.id}`] || player.club.abbrName;
       if (cardTypeInfo) {
-        cardTypeName = _.startCase(_.camelCase(`${cardTypeInfo.name} ${player.quality}`)).replace("Champions League", "UCL");
+        cardTypeName = _.startCase(_.camelCase(`${cardTypeInfo.name}`)).replace("Champions League", "UCL");
       }
-      return [i+1, formatShortName(player), player.rating, clubAbbr, cardTypeName];
+      return [i+1, player.full_name, player.rating,
+      //clubAbbr,
+      cardTypeName];
     })
   });
   return table.toString();
